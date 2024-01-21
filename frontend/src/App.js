@@ -20,26 +20,21 @@ import {
   ShopCreatePage,
   SellerActivationPage,
   ShopLoginPage,
-} from "./Routes.js";
+} from "./routes/Routes.js";
 import Store from "./redux/store.js";
 import { loadSeller, loadUser } from "./redux/actions/user.js";
-import { useSelector } from "react-redux";
-import ProtectedRoute from "./ProtectedRoute.js";
-import { ShopHomePage } from "./ShopRoutes.js";
-import SellerProtectedRoute from "./SellerProtectedRoute.js";
+import ProtectedRoute from "./routes/ProtectedRoute.js";
+import { ShopHomePage, ShopDashboardPage } from "./routes/ShopRoutes.js";
+import SellerProtectedRoute from "./routes/SellerProtectedRoute.js";
 
 const App = () => {
-  const { loading, isAuthenticated } = useSelector((state) => state.user);
-  const { isLoading, isSeller} = useSelector((state) => state.seller);
-
+  
   useEffect(() => {
     Store.dispatch(loadUser());
     Store.dispatch(loadSeller());
   }, []);
 
   return (
-    <>
-      {loading || isLoading ? null : (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<HomePage />} />
@@ -54,7 +49,7 @@ const App = () => {
             <Route
               path="/profile"
               element={
-                <ProtectedRoute isAuthenticated={isAuthenticated}>
+                <ProtectedRoute >
                   <ProfilePage />
                 </ProtectedRoute>
               }
@@ -65,8 +60,16 @@ const App = () => {
             <Route
               path="/shop/:id"
               element={
-                <SellerProtectedRoute isSeller={isSeller} >
+                <SellerProtectedRoute  >
                   <ShopHomePage />
+                </SellerProtectedRoute>
+              }
+            />
+            <Route
+              path="/dashboard"
+              element={
+                <SellerProtectedRoute  >
+                  <ShopDashboardPage />
                 </SellerProtectedRoute>
               }
             />
@@ -88,8 +91,6 @@ const App = () => {
             theme="light"
           />
         </BrowserRouter>
-      )}
-    </>
   );
 };
 

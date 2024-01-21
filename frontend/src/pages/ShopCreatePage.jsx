@@ -10,7 +10,7 @@ const ShopCreatePage = () => {
   //prevent going back to Login page using the url if already login
   useEffect(() => {
     if (isSeller === true) {
-      navigate(`/shop/${seller._id}`);
+      navigate("/dashboard");
     }
   }, []);
 
