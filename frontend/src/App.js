@@ -24,7 +24,7 @@ import {
 import Store from "./redux/store.js";
 import { loadSeller, loadUser } from "./redux/actions/user.js";
 import ProtectedRoute from "./routes/ProtectedRoute.js";
-import { ShopHomePage, ShopDashboardPage } from "./routes/ShopRoutes.js";
+import { ShopHomePage, ShopDashboardPage, ShopCreateBidding  } from "./routes/ShopRoutes.js";
 import SellerProtectedRoute from "./routes/SellerProtectedRoute.js";
 
 const App = () => {
@@ -70,6 +70,14 @@ const App = () => {
               element={
                 <SellerProtectedRoute  >
                   <ShopDashboardPage />
+                </SellerProtectedRoute>
+              }
+            />
+            <Route
+              path="/dashboard-create-bidding"
+              element={
+                <SellerProtectedRoute  >
+                  <ShopCreateBidding />
                 </SellerProtectedRoute>
               }
             />
