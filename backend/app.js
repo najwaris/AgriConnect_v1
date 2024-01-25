@@ -26,9 +26,11 @@ if (process.env.NODE_ENV !== "PRODUCTION") {
 
 const user = require("./controller/user");
 const shop = require("./controller/shop");
+const bidding = require("./controller/bidding");
 
 app.use("/api/v2/user", user);
 app.use("/api/v2/shop", shop);
+app.use("/api/v2/bidding", bidding);
 
 //For error handling
 app.use(ErrorHandler);

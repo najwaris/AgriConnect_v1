@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { categoriesData } from "../../static/data";
+import { createBidding } from "../../redux/actions/bidding";
+import { AiOutlinePlusCircle } from "react-icons/ai";
+import { toast } from "react-toastify";
 
 const CreateBidding = () => {
   const { seller } = useSelector((state) => state.seller);
+  const { isLoading, success, error } = useSelector((state) => state.biddings);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -13,10 +17,51 @@ const CreateBidding = () => {
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [tags, setTags] = useState("");
-  const [ minimumPrice, setMinimumPrice] = useState();
+  const [minimumPrice, setMinimumPrice] = useState();
+
+  useEffect(() => {
+    if (error) {
+      toast.error(error);
+    }
+    if (success) {
+      toast.success("Product created successfully!");
+      navigate("/dashboard");
+      window.location.reload();
+    }
+  }, [dispatch, error, success]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const newForm = new FormData();
+    images.forEach((image) => {
+      newForm.append("images", image);
+    });
+
+    newForm.append("name", name);
+    newForm.append("description", description);
+    newForm.append("category", category);
+    newForm.append("tags", tags);
+    newForm.append("minimumPrice", minimumPrice);
+    newForm.append("shopId", seller._id);
+    dispatch(
+      createBidding({
+        name,
+        description,
+        category,
+        tags,
+        minimumPrice,
+        shopId: seller._id,
+        images,
+      })
+    );
+  };
+
+  const handleImageChange = (e) => {
+    e.preventDefault();
+
+    let files = Array.from(e.target.files);
+    setImages((prevImages) => [...prevImages, ...files]);
   };
 
   return (
@@ -32,6 +77,7 @@ const CreateBidding = () => {
             Name <span className="text-red-500">*</span>
           </label>
           <input
+            required
             type="text"
             name="name"
             value={name}
@@ -90,8 +136,9 @@ const CreateBidding = () => {
         </div>
         <br />
         <div>
-          <label className="pb-2">Minimum Price</label>
+          <label className="pb-2">Minimum Price (RM)</label>
           <input
+            required
             type="number"
             name="price"
             value={minimumPrice}
@@ -99,6 +146,43 @@ const CreateBidding = () => {
             onChange={(e) => setMinimumPrice(e.target.value)}
             placeholder="Enter your minimum bidding price (RM) ..."
           />
+        </div>
+        <br />
+        <div>
+          <label className="pb-2">
+            Upload Images <span className="text-red-500">*</span>
+          </label>
+          <input
+            required
+            type="file"
+            name=""
+            id="upload"
+            className="hidden"
+            multiple
+            onChange={handleImageChange}
+          />
+          <div className="w-full flex items-center flex-wrap">
+            <label htmlFor="upload">
+              <AiOutlinePlusCircle size={30} className="mt-3" color="#555" />
+            </label>
+            {images &&
+              images.map((i) => (
+                <img
+                  src={URL.createObjectURL(i)}
+                  key={i}
+                  alt=""
+                  className="h-[120px] w-[120px] object-cover m-2"
+                />
+              ))}
+          </div>
+          <br />
+          <div>
+            <input
+              type="submit"
+              value="Create"
+              className="mt-2 cursor-pointer appearance-none text-center block w-full px-3 h-[35px] border border-gray-300 rounded-[3px] placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+            />
+          </div>
         </div>
       </form>
     </div>
