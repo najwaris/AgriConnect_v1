@@ -76,7 +76,7 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                     <div className="w-[90%] 800px:w-[60%] h-[90vh] overflow-y-scroll 800px:h-[75vh] bg-white rounded-md shadow-sm relative p-4">
                         <RxCross1
                             size={30}
-                            className="absolute right-3 top-3 z-50"
+                            className="absolute right-3 top-3 z-"
                             onClick={() => setOpen(false)}
                         />
 
@@ -93,7 +93,9 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                                         <h3 className={`${styles.shop_name}`}>
                                             {data.shop.name}
                                         </h3>
-                                        <h5 className="pb-3 text-[15px]">({data.shop.ratings}) Ratings</h5>
+                                        <h5 className="pb-3 text-[15px]">
+                                            ({data.shop.ratings}) Ratings
+                                        </h5>
                                     </div>
                                 </div>
 

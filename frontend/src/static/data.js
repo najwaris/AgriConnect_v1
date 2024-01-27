@@ -574,7 +574,7 @@ export const productData = [
         user: {
           // user object will be here
         },
-        comment: "IT's so cool!",
+        comment: "It's so cool!",
         rating: 5,
       },
     ],
@@ -588,36 +588,42 @@ export const footerProductLinks = [
     name: "About us",
     link: "/about",
   },
-  {
-    name: "Careers",
-    link: "/carrers",
-  },
+  // {
+  //   name: "Careers",
+  //   link: "/carrers",
+  // },
   {
     name: "Store Locations",
   },
-  {
-    name: "Our Blog",
-  },
-  {
-    name: "Reviews",
-  },
+  // {
+  //   name: "Our Blog",
+  // },
+  // {
+  //   name: "Reviews",
+  // },
 ];
 
 export const footercompanyLinks = [
+  // {
+  //   name: "Game & Video",
+  // },
+  // {
+  //   name: "Phone &Tablets",
+  // },
+  // {
+  //   name: "Computers & Laptop",
+  // },
+  // {
+  //   name: "Sport Watches",
+  // },
+  // {
+  //   name: "Events",
+  // },
   {
-    name: "Game & Video",
+    name: "Vegetables",
   },
   {
-    name: "Phone &Tablets",
-  },
-  {
-    name: "Computers & Laptop",
-  },
-  {
-    name: "Sport Watches",
-  },
-  {
-    name: "Events",
+    name: "Fruits",
   },
 ];
 
@@ -625,15 +631,15 @@ export const footerSupportLinks = [
   {
     name: "FAQ",
   },
-  {
-    name: "Reviews",
-  },
+  // {
+  //   name: "Reviews",
+  // },
   {
     name: "Contact Us",
   },
-  {
-    name: "Shipping",
-  },
+  // {
+  //   name: "Shipping",
+  // },
   {
     name: "Live chat",
   },

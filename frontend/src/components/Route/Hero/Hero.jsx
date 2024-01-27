@@ -19,9 +19,9 @@ const Hero = () => {
         </h1>
         <p className="pt-5 text-[16px] font-[Poppins] font-[400] text-[#FFFF00]">
           At AgriConnect, we bridge the gap between farmers and buyers, bringing
-          fresh produce directly from the field to your table. <br /> We empower farmers to reach a wider audience
-          and secure fair prices, while offering buyers access to high-quality, locally sourced products.{" "}
-          <br /> Through our user-friendly platform, connecting with the heart of agriculture has never been easier.
+          fresh produce directly from the field to your table. We empower farmers to reach a wider audience
+          and secure fair prices, while offering buyers access to high-quality, locally sourced products.
+          Through our user-friendly platform, connecting with the heart of agriculture has never been easier.
         </p>
         <Link to="/products" className="inline-block">
             <div className={`${styles.button} mt-5`}>
