@@ -1,15 +1,19 @@
 import React, { useState } from "react";
 import styles from "../../styles/styles";
 import { Link } from "react-router-dom";
-import { IoIosArrowForward } from "react-icons/io";
+import { IoIosArrowDown, IoIosArrowDownIoIosArrowForward, IoIosArrowForward } from "react-icons/io";
+import DropDown from "./DropDown";
 import NavBar from "./NavBar";
 import { CgProfile } from "react-icons/cg";
 import { useSelector } from "react-redux";
 import { backend_url } from "../../server";
+import { BiMenuAltLeft } from "react-icons/bi";
+import { categoriesData } from "../../static/data";
 
 const Header = ({ activeHeading }) => {
   const { isAuthenticated, user } = useSelector((state) => state.user);
   const [active, setActive] = useState(false);
+  const [dropDown, setDropDown] = useState(false);
 
   window.addEventListener("scroll", () => {
     if (window.scrollY > 70) {
@@ -44,14 +48,37 @@ const Header = ({ activeHeading }) => {
         </div>
       </div>
       <div
-        className={`${
-          active === true ? "shadow-sm top-0 left-0 z-10" : null
-        } transition hidden 800px:flex items-center justify-between w-full bg-green-600 h-[70px] `}
+        className={`${active === true ? "shadow-sm top-0 left-0 z-10" : null
+          } transition hidden 800px:flex items-center justify-between w-full bg-green-600 h-[70px] `}
       >
-        {/*navigation bar*/}
+        {/* categories
+        <div onClick={() => setDropDown(!DropDown)}>
+          <div className="relative h-[60px] mt-[10px] w-[270px] hidden 1000px:block">
+            <BiMenuAltLeft size={30} className="absolute top-3 left-2" />
+            <button
+              className={`h-[100%] w-full flex justify-between items-center pl-10 bg-white font-sans text-lg font-[500] select-none rounded-t-md`}
+            >
+              All Categories
+            </button>
+            <IoIosArrowDown
+              size={20}
+              className="absolute right-2 top-4 cursor-pointer"
+              onClick={() => setDropDown(!DropDown)}
+            />
+            {DropDown ? (
+              <DropDown
+                categoriesData={categoriesData}
+                DropDown={setDropDown}
+              />
+            ) : null}
+          </div>
+        </div> */}
+
+        {/* navitems */}
         <div className={`${styles.noramlFlex}`}>
           <NavBar active={activeHeading} />
         </div>
+
         <div>
           {/*Profile*/}
           <div className={`${styles.noramlFlex}`}>
