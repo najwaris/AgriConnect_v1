@@ -13,11 +13,11 @@ const Hero = () => {
     >
       <div className={`${styles.section} w-[90%] 800px:w-[60%]`}>
         <h1
-          className={`text-[35px] leading-[1.2] 800px:text-[60px] text-[#FFCC66] font-[600] capitalize`}
+          className={`text-[35px] leading-[1.2] 800px:text-[60px] text-[#66b28c] font-[600] capitalize`}
         >
           Best Collection for <br /> Fresh and Local Crops
         </h1>
-        <p className="pt-5 text-[16px] font-[Poppins] font-[400] text-[#FFFF00]">
+        <p className="pt-5 text-[16px] font-[Poppins] font-[400] text-[#77bb77]">
           At AgriConnect, we bridge the gap between farmers and buyers, bringing
           fresh produce directly from the field to your table. We empower farmers to reach a wider audience
           and secure fair prices, while offering buyers access to high-quality, locally sourced products.
