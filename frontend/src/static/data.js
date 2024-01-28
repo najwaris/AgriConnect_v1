@@ -18,8 +18,8 @@ export const navItems = [
 export const brandingData = [
   {
     id: 1,
-    title: "Free Shipping",
-    Description: "From all orders over 100$",
+    title: "Simple & Fresh",
+    Description: "Simplicity meets fresh possibilities",
     icon: (
       <svg
         width="36"
@@ -68,8 +68,8 @@ export const brandingData = [
   },
   {
     id: 2,
-    title: "Daily Surprise Offers",
-    Description: "Save up to 25% off",
+    title: "Connect & Grow",
+    Description: "Grow connections, nourish community",
     icon: (
       <svg
         width="32"
@@ -96,8 +96,8 @@ export const brandingData = [
   },
   {
     id: 4,
-    title: "Affortable Prices",
-    Description: "Get Factory direct price",
+    title: "Connect. Harvest. Thrive.",
+    Description: "Thriving in the agricultural ecosystem",
     icon: (
       <svg
         width="32"
@@ -143,8 +143,8 @@ export const brandingData = [
   },
   {
     id: 5,
-    title: "Secure Payments",
-    Description: "100% protected payments",
+    title: "Fresh. Fair. Local.",
+    Description: "Fresh produce, fair prices, and locally sourced",
     icon: (
       <svg
         width="32"
@@ -583,6 +583,7 @@ export const productData = [
   },
 ];
 
+// ayamSebal 
 export const footerProductLinks = [
   {
     name: "About us",
@@ -634,9 +635,9 @@ export const footerSupportLinks = [
   // {
   //   name: "Reviews",
   // },
-  {
-    name: "Contact Us",
-  },
+  // {
+  //   name: "Contact Us",
+  // },
   // {
   //   name: "Shipping",
   // },

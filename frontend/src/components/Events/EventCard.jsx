@@ -55,7 +55,7 @@ const EventCard = () => {
                 <CountDown />
                 <br />
 
-                <Link to="/BiddingPage" className="inline-block">
+                <Link to="../../src/pages/BiddingPage" className="inline-block">
                     <div className={`${styles.button} mt-5`}>
                         <span className="text-[#fff] font-[Poppins] text-[16px]">
                             Join Bidding
