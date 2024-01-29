@@ -3,7 +3,7 @@ import styles from "../../styles/styles";
 import { Link } from "react-router-dom";
 import { navItems } from "../../static/data";
 
-//navigation items is obtained from data in static , if want to change anything change to the items it there 
+//navigation items is obtained from data in static , if want to change anything change to the items are there 
 
 const NavBar = ({ active }) => {
   return (
