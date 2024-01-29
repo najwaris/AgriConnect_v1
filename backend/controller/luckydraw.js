@@ -1,16 +1,16 @@
 const express = require("express");
-const router = express.Router();
-const Bidding = require("../model/bidding");
-const catchAsyncErrors = require("../middleware/catchAsyncError");
 const ErrorHandler = require("../utils/ErrorHandler");
-const Shop = require("../model/shop");
+const catchAsyncErrors = require("../middleware/catchAsyncError");
 const { upload } = require("../multer");
+const Shop = require("../model/shop");
+const Luckydraw = require("../model/luckydraw");
 const { isSeller } = require("../middleware/auth");
+const router = express.Router();
 const fs = require("fs");
 
 // create product
 router.post(
-  "/create-bidding",
+  "/create-luckydraw",
   upload.array("images"),
   catchAsyncErrors(async (req, res, next) => {
     try {
@@ -21,14 +21,14 @@ router.post(
       } else {
         const files = req.files;
         const imagesUrls = files.map((file) => `${file.filename}`);
-        const biddingData = req.body;
-        biddingData.images = imagesUrls;
-        biddingData.shop = shop;
+        const luckydrawData = req.body;
+        luckydrawData.images = imagesUrls;
+        luckydrawData.shop = shop;
 
-        const bidding = await Bidding.create(biddingData);
+        const luckydraw = await Luckydraw.create(luckydrawData);
         res.status(201).json({
           success: true,
-          bidding,
+          luckydraw,
         });
       }
     } catch (error) {
@@ -38,13 +38,13 @@ router.post(
 );
 
 router.get(
-  "/get-all-biddings/:id",
+  "/get-all-luckydraws/:id",
   catchAsyncErrors(async (req, res, next) => {
     try {
-      const biddings = await Bidding.find({ shopId: req.params.id });
+      const luckydraws = await Luckydraw.find({ shopId: req.params.id });
       res.status(201).json({
         success: true,
-        biddings,
+        luckydraws,
       });
     } catch (error) {
       return next(new ErrorHandler(error, 400));
@@ -52,19 +52,19 @@ router.get(
   })
 );
 
-//delete bidding from shop
+//delete luckydraw from shop
 router.delete(
-  "/delete-shop-bidding/:id",
+  "/delete-shop-luckydraw/:id",
   isSeller,
   catchAsyncErrors(async (req, res, next) => {
     try {
-      const biddingId = req.params.id;
-      const biddingData = await Bidding.findById(biddingId);
+      const luckydrawId = req.params.id;
+      const luckydrawData = await Luckydraw.findById(luckydrawId);
 
-      if (!biddingData) {
-        return next(new ErrorHandler("Bidding not found with this id!", 500));
+      if (!luckydrawData) {
+        return next(new ErrorHandler("Luckydraw not found with this id!", 500));
       }
-      biddingData.images.forEach((imagesUrl) => {
+      luckydrawData.images.forEach((imagesUrl) => {
         const filename = imagesUrl;
         const filePath = `uploads/${filename}`;
         fs.unlink(filePath, (err) => {
@@ -75,11 +75,10 @@ router.delete(
         });
       });
 
-      const bidding = await Bidding.findByIdAndDelete(biddingId);
-
+      const luckydraw = await Luckydraw.findByIdAndDelete(luckydrawId);
       res.status(201).json({
         success: true,
-        message: "Bidding deleted successfully",
+        message: "Luckydraw deleted successfully",
       });
     } catch (error) {
       return next(new ErrorHandler(error, 400));
