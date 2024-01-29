@@ -19,7 +19,7 @@ const Hero = () => {
           Best Collection for <br /> Fresh and Local Crops
         </h2>
 
-        <p className="pt-5 text-[16px] font-[Poppins] font-[400] text-[#77bb77]">
+        <p className="pt-5 text-[16px] font-[Poppins] font-[400] text-[#FFFFFF]">
           At AgriConnect, we bridge the gap between farmers and buyers, bringing
           fresh produce directly from the field to your table. We empower farmers to reach a wider audience
           and secure fair prices, while offering buyers access to high-quality, locally sourced products.
@@ -34,10 +34,10 @@ const Hero = () => {
         > Our Services:
         </h3>
 
-        <p className="pt-5 text-[16px] font-[Poppins] font-[400] text-[#77bb77]">
+        <p className="pt-5 text-[16px] font-[Poppins] font-[400] text-[#FFFFFF]">
           <ul className="list-disc">
             <li>Buy and sell locally sourced crops.</li>
-            <li>Donate the defect yeat still edible crops.</li>
+            <li>Donate the defect yet still edible crops.</li>
           </ul>
         </p>
 

@@ -9,11 +9,10 @@ import {
 } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import styles from "../../../styles/styles";
-import ProductDetailsCard from "../ProductDetailsCard/ProductDetailsCard";
 import ProductDetailsCard2 from "../ProductDetailsCard/ProductDetailsCard2";
 import { useEffect } from "react";
 
-const ProductCard = ({ data }) => {
+const ProductCard2 = ({ data }) => {
     const [click, setClick] = useState(false);
     const [open, setOpen] = useState(false);
 
@@ -92,16 +91,16 @@ const ProductCard = ({ data }) => {
 
                 <div>
 
-                    <AiOutlineShoppingCart
-                        size={25}
+                    <AiOutlineHeart
+                        size={22}
                         className="cursor-pointer absolute right-2 top-5"
                         onClick={() => setOpen(!open)}
-                        color="#444"
-                        title="Join Bidding"
+                        color="#333"
+                        title="Join Donation"
                     />
 
                     {open ? (
-                        <ProductDetailsCard setOpen={setOpen} data={data} />
+                        <ProductDetailsCard2 setOpen={setOpen} data={data} />
                     ) : null}
 
                 </div>
@@ -111,4 +110,4 @@ const ProductCard = ({ data }) => {
     );
 };
 
-export default ProductCard;
+export default ProductCard2;
