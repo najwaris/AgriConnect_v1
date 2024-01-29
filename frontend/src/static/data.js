@@ -10,7 +10,7 @@ export const navItems = [
   },
   {
     title: "Lucky Draws",
-    url: "/luckyDraws",
+    url: "/luckydraw",
   },
 ];
 

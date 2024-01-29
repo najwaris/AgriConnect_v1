@@ -8,9 +8,11 @@ import {
 import { RxCross1 } from "react-icons/rx";
 import styles from "../../../styles/styles";
 
+
 const ProductDetailsCard = ({ setOpen, data }) => {
     const [count, setCount] = useState(1);
     const [click, setClick] = useState(false);
+    const [bidPrice, setBidPrice] = useState("");
     //const [select, setSelect] = useState(false);
 
     const handleMessageSubmit = () => { };
@@ -23,6 +25,19 @@ const ProductDetailsCard = ({ setOpen, data }) => {
 
     const incrementCount = () => {
         setCount(count + 1);
+    };
+
+    const handleChange = (e) => {
+        const { value } = e.target;
+        setBidPrice(value);
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // Handle the bidding form submission here
+        console.log("Bidding form submitted with price:", bidPrice);
+        // Reset the bidPrice state if needed
+        setBidPrice("");
     };
 
     return (
@@ -105,6 +120,21 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                                         </button>
                                     </div>
 
+                                    {/* <form onSubmit={handleSubmit}>
+                                        <label>Your Bid Price:</label>
+                                        <input
+                                            type="number"
+                                            name="bidPrice"
+                                            value={bidPrice}
+                                            onChange={handleChange}
+                                            placeholder="Enter your bid price"
+                                            required
+                                        />
+
+                                        <button type="submit">Submit Bid</button>
+                                    </form> */}
+
+
                                     <div>
                                         {click ? (
                                             <AiFillHeart
@@ -125,6 +155,27 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                                         )}
                                     </div>
                                 </div>
+
+                                <br />
+
+                                <form onSubmit={handleSubmit}>
+                                    <label className="block mb-2 text-sm font-medium text-gray-900">Your Bid Price:</label>
+                                    <input 
+                                        type="number"
+                                        name="bidPrice"
+                                        value={bidPrice}
+                                        onChange={handleChange}
+                                        placeholder="Enter your bid price"
+                                        required
+                                    />
+
+                                    <button
+                                        type="submit"
+                                        className="bg-gradient-to-r from-teal-400 to-teal-500 text-white font-bold contained rounded px-4 py-2 shadow-lg hover:opacity-75 transition duration-300 ease-in-out"
+                                    >
+                                        Submit Bid
+                                    </button>
+                                </form>
 
                                 <div
                                     className={'${styles.button} mt-6 rounded-[4px] h-11 flex items-center'}
