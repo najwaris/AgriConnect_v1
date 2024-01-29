@@ -9,10 +9,12 @@ const LoginPage = () => {
 
   //prevent going back to Login page using the url if already login
   useEffect(() => {
-    if (isAuthenticated === true) {
+    if (isAuthenticated === true){
       navigate("/");
     }
-  }, []);
+  }, [isAuthenticated]);
+
+  console.log(isAuthenticated);
 
   return (
     <div>
