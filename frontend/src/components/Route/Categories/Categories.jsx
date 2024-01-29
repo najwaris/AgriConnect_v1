@@ -5,6 +5,7 @@ import styles from "../../../styles/styles";
 
 const Categories = () => {
   const navigate = useNavigate();
+
   return (
     <>
       <div className={`${styles.section} hidden sm:block`}>
