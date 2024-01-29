@@ -7,7 +7,7 @@ const Events = () => {
     <div >
       <div className={`${styles.section}`}>
         <div className={`${styles.heading}`}>
-          <h1>Ongoing Bidding</h1>
+          <h1 href="../../pages/OngoingBidding">Ongoing Bidding</h1>
         </div>
 
         <div className="w-full grid">

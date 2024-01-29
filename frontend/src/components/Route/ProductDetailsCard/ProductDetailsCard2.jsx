@@ -10,7 +10,7 @@ import styles from "../../../styles/styles";
 import CountDown from "../../Events/CountDown";
 
 
-const ProductDetailsCard = ({ setOpen, data }) => {
+const ProductDetailsCard2 = ({ setOpen, data }) => {
     const [count, setCount] = useState(1);
     const [click, setClick] = useState(false);
     const [bidPrice, setBidPrice] = useState("");
@@ -18,20 +18,20 @@ const ProductDetailsCard = ({ setOpen, data }) => {
 
     const handleMessageSubmit = () => { };
 
-    const decrementCount = () => {
-        if (count > 1) {
-            setCount(count - 1);
-        }
-    };
+    // const decrementCount = () => {
+    //     if (count > 1) {
+    //         setCount(count - 1);
+    //     }
+    // };
 
-    const incrementCount = () => {
-        setCount(count + 1);
-    };
+    // const incrementCount = () => {
+    //     setCount(count + 1);
+    // };
 
-    const handleChange = (e) => {
-        const { value } = e.target;
-        setBidPrice(value);
-    };
+    // const handleChange = (e) => {
+    //     const { value } = e.target;
+    //     setBidPrice(value);
+    // };
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -104,7 +104,7 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                                 <br />
 
                                 <form onSubmit={handleSubmit}>
-                                    <label className="block mb-2 text-sm font-medium text-gray-900">Your Bid Price:</label>
+                                    {/* <label className="block mb-2 text-sm font-medium text-gray-900">Your Bid Price:</label>
                                     <input
                                         type="number"
                                         name="bidPrice"
@@ -112,13 +112,13 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                                         onChange={handleChange}
                                         placeholder="Enter your bid price"
                                         required
-                                    />
+                                    /> */}
 
                                     <button
                                         type="submit"
                                         className="bg-gradient-to-r from-teal-400 to-teal-500 text-white font-bold contained rounded px-4 py-2 shadow-lg hover:opacity-75 transition duration-300 ease-in-out"
                                     >
-                                        Submit Bid
+                                        Join Donation
                                     </button>
                                 </form>
 
@@ -146,4 +146,4 @@ const ProductDetailsCard = ({ setOpen, data }) => {
     );
 };
 
-export default ProductDetailsCard;
+export default ProductDetailsCard2;

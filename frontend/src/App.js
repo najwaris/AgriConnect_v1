@@ -27,6 +27,7 @@ import ProtectedRoute from "./routes/ProtectedRoute.js";
 import { ShopHomePage, ShopDashboardPage, ShopCreateBidding, ShopAllBiddings, ShopCreateLuckydraw, ShopAllLuckydraws } from "./routes/ShopRoutes.js";
 import SellerProtectedRoute from "./routes/SellerProtectedRoute.js";
 
+
 const App = () => {
   
   useEffect(() => {
