@@ -27,10 +27,12 @@ if (process.env.NODE_ENV !== "PRODUCTION") {
 const user = require("./controller/user");
 const shop = require("./controller/shop");
 const bidding = require("./controller/bidding");
+const luckydraw = require("./controller/luckydraw");
 
 app.use("/api/v2/user", user);
 app.use("/api/v2/shop", shop);
 app.use("/api/v2/bidding", bidding);
+app.use("/api/v2/luckydraw", luckydraw);
 
 //For error handling
 app.use(ErrorHandler);

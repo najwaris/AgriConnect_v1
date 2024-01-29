@@ -24,7 +24,7 @@ import {
 import Store from "./redux/store.js";
 import { loadSeller, loadUser } from "./redux/actions/user.js";
 import ProtectedRoute from "./routes/ProtectedRoute.js";
-import { ShopHomePage, ShopDashboardPage, ShopCreateBidding  } from "./routes/ShopRoutes.js";
+import { ShopHomePage, ShopDashboardPage, ShopCreateBidding, ShopAllBiddings, ShopCreateLuckydraw, ShopAllLuckydraws } from "./routes/ShopRoutes.js";
 import SellerProtectedRoute from "./routes/SellerProtectedRoute.js";
 
 const App = () => {
@@ -78,6 +78,30 @@ const App = () => {
               element={
                 <SellerProtectedRoute  >
                   <ShopCreateBidding />
+                </SellerProtectedRoute>
+              }
+            />
+            <Route
+              path="/dashboard-biddings"
+              element={
+                <SellerProtectedRoute  >
+                  <ShopAllBiddings />
+                </SellerProtectedRoute>
+              }
+            />
+            <Route
+              path="/dashboard-create-luckydraw"
+              element={
+                <SellerProtectedRoute  >
+                  <ShopCreateLuckydraw />
+                </SellerProtectedRoute>
+              }
+            />
+            <Route
+              path="/dashboard/luckydraws"
+              element={
+                <SellerProtectedRoute  >
+                  <ShopAllLuckydraws />
                 </SellerProtectedRoute>
               }
             />

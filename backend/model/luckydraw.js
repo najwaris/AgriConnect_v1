@@ -1,13 +1,13 @@
 const mongoose = require("mongoose");
 
-const biddingSchema = new mongoose.Schema({
+const luckydrawSchema = new mongoose.Schema({
   name: {
     type: String,
     required: [true, "Please enter your product name!"],
   },
   description: {
     type: String,
-    required: [true, "Please enter your product description!"],
+    required: [true, "Please state clearly the amount, and all the defects on the products!"],
   },
   category: {
     type: String,
@@ -26,22 +26,21 @@ const biddingSchema = new mongoose.Schema({
   tags: {
     type: String,
   },
-  minimumPrice: {
-    type: Number,
-    required: [true, "Please enter your minimum bidding price!"],
-  },
-  highestBid: {
-    type: Number,
-  },
-  highestBidder: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User", // Reference to the User model
-  },
+  participants: [
+    { type: mongoose.Schema.Types.ObjectId, 
+      ref: "User" }
+    ],
   images: [
     {
       type: String,
     },
   ],
+  winnerID: {
+    type: String,
+  },
+  winner: {
+    type: Object,
+  },
   shopId: {
     type: String,
     required: true,
@@ -56,4 +55,4 @@ const biddingSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("Bidding", biddingSchema);
+module.exports = mongoose.model("Luckydraw", luckydrawSchema);
