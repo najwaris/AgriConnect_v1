@@ -10,7 +10,7 @@ export const navItems = [
   },
   {
     title: "Lucky Draws",
-    url: "/luckydraw",
+    url: "/luckydraws",
   },
 ];
 
@@ -183,72 +183,72 @@ export const brandingData = [
 export const categoriesData = [
   {
     id: 1,
-    title: "Computers and Laptops",
+    title: "Leafy Greens",
     subTitle: "",
     image_Url:
-      "https://cdn.shopify.com/s/files/1/1706/9177/products/NEWAppleMacbookProwithM1ProChip14InchLaptop2021ModelMKGQ3LL_A_16GB_1TBSSD_custommacbd.jpg?v=1659592838",
+      "https://i.pinimg.com/736x/f5/41/17/f5411711381b1b77437c3dd56ec986f3.jpg",
   },
   {
     id: 2,
-    title: "cosmetics and body care",
+    title: "Citrus Fruits",
     subTitle: "",
     image_Url:
-      "https://indian-retailer.s3.ap-south-1.amazonaws.com/s3fs-public/2021-07/kosme1.png",
+      "https://img.freepik.com/premium-photo/fresh-lime-with-leaf-white-background_55883-5.jpg",
   },
   {
     id: 3,
-    title: "Accesories",
+    title: "Root Vegetables",
     subTitle: "",
     image_Url:
-      "https://img.freepik.com/free-vector/ordering-goods-online-internet-store-online-shopping-niche-e-commerce-website-mother-buying-babies-clothes-footwear-toys-infant-accessories_335657-2345.jpg?w=2000",
+      "https://img.freepik.com/premium-photo/carrot-vegetable-with-leaves-isolated-white-background-cutout_272595-91.jpg?w=2000",
   },
   {
     id: 4,
-    title: "Cloths",
+    title: "Berries and Nuts",
     subTitle: "",
     image_Url:
-      "https://www.shift4shop.com/2015/images/industries/clothing/clothing-apparel.png",
+      "https://m.media-amazon.com/images/I/81zPIHqK22L.jpg",
   },
   {
     id: 5,
-    title: "Shoes",
+    title: "Tropical Fruits",
     subTitle: "",
     image_Url:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvBQPQMVNRd6TtDkGs2dCri0Y-rxKkFOiEWw&usqp=CAU",
+      "https://c8.alamy.com/comp/W2KE51/tropical-fruits-whole-and-cut-isolated-on-white-background-W2KE51.jpg",
   },
   {
     id: 6,
-    title: "Gifts",
+    title: "Herbs and Spices",
     subTitle: "",
     image_Url:
-      "https://securecdn.pymnts.com/wp-content/uploads/2014/11/Gifts-Photo-700x489.jpg",
+      "https://static.vecteezy.com/system/resources/previews/004/967/587/large_2x/various-spices-isolated-on-white-background-top-view-photo.jpg",
   },
   {
     id: 7,
-    title: "Pet Care",
+    title: "Exotic Vegetables",
     subTitle: "",
-    image_Url: "https://cdn.openpr.com/T/c/Tc15444071_g.jpg",
+    image_Url: "https://thumbs.dreamstime.com/b/tropical-fruits-vegetables-grocery-fresh-white-background-76514788.jpg",
   },
   {
     id: 8,
-    title: "Mobile and Tablets",
+    title: "Stone Fruits",
     subTitle: "",
     image_Url:
-      "https://st-troy.mncdn.com/mnresize/1500/1500/Content/media/ProductImg/original/mpwp3tua-apple-iphone-14-256gb-mavi-mpwp3tua-637986832343472449.jpg",
+      "https://www.allrecipes.com/thmb/Z_t5HiOqG7bwc8LaTBcyulrE464=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Lychees-2000-4dd14e71a69648c4b2917f247a04c355.jpg",
   },
   {
     id: 9,
-    title: "Music and Gaming",
+    title: "Cruciferous Vegetables",
     subTitle: "",
     image_Url:
-      "https://static.vecteezy.com/system/resources/previews/011/996/555/original/3d-black-headphone-illustration-ecommerce-icon-png.png",
+      "https://www.hunterrehab.com.au/wp-content/uploads/2017/11/crucifers-licensed-1.jpg",
   },
   {
     id: 10,
-    title: "Others",
+    title: "Melons and Gourds",
     subTitle: "",
     image_Url:
-      "https://searchspring.com/wp-content/uploads/2022/10/Hero-Image-Platform-Others-2.png",
+      "https://img.freepik.com/premium-photo/bitter-melon-bitter-gourd-white-background_35378-1251.jpg",
   },
 ];
 
@@ -606,19 +606,22 @@ export const footerProductLinks = [
 
 export const footercompanyLinks = [
   // {
-  //   name: "Game & Video",
+  //   name: "Leafy Greens",
   // },
   // {
-  //   name: "Phone &Tablets",
+  //   name: "Citrus Fruits",
   // },
   // {
-  //   name: "Computers & Laptop",
+  //   name: "Root Vegetables",
   // },
   // {
-  //   name: "Sport Watches",
+  //   name: "Berries and Nuts",
   // },
   // {
-  //   name: "Events",
+  //   name: "Tropical Fruits",
+  // },
+    // {
+  //   name: "Herbs and Spices",
   // },
   {
     name: "Vegetables",
