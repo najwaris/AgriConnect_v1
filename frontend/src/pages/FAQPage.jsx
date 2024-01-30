@@ -26,7 +26,10 @@ const Faq = () => {
 
     return (
         <div className="{'${styles.section} my-8'}">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 mt-8 ml-10 text-teal-600">FAQ</h2>
+
+            <div className="text-center">
+                <h2 className="mt-4 text-3xl font-bold text-teal-600 sm:text-4xl xl:text-5xl font-pj mb-8">FAQ</h2>
+            </div>
 
             <div className="mx-auto space-y-4 mb-8">
 
@@ -236,7 +239,7 @@ const Faq = () => {
                             <div className="mt-4">
                                 <p className="text-base text-gray-500">
                                     As our goal is to eliminate the middlemen, we will create
-                                    an environment of virtual 'market' with not commision in between. 
+                                    an environment of virtual 'market' with no commision in between.
                                 </p>
                             </div>
                         )

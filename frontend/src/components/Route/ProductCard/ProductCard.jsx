@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import {
   AiFillStar,
+  AiOutlineEye,
   AiOutlineShoppingCart,
   AiOutlineStar,
 } from "react-icons/ai";
@@ -87,7 +88,7 @@ const ProductCard = ({ data }) => {
         {/* side options */}
 
         <div>
-          <AiOutlineShoppingCart
+          <AiOutlineEye
             size={25}
             className="cursor-pointer absolute right-2 top-5"
             onClick={() => setOpen(!open)}
