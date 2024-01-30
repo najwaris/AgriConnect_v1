@@ -583,7 +583,7 @@ export const productData = [
   },
 ];
 
-// ayamSebal 
+
 export const footerProductLinks = [
   {
     name: "About us",
@@ -633,7 +633,8 @@ export const footercompanyLinks = [
 
 export const footerSupportLinks = [
   {
-    name: "FAQ",
+    name: "FAQ Page",
+    link: "/faq",
   },
   // {
   //   name: "Reviews",
