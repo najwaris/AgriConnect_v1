@@ -5,6 +5,7 @@ import ProductCard from "../components/Route/ProductCard/ProductCard";
 import { productData } from "../static/data";
 import { useSearchParams } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Footer from "../components/Layout/Footer";
 
 const BiddingPage = () => {
   const [searchParams] = useSearchParams();
@@ -42,6 +43,7 @@ const BiddingPage = () => {
           </h1>
         ) : null}
       </div>
+      <Footer />
     </div>
   );
 };
