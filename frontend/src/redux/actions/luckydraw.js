@@ -75,3 +75,29 @@ export const deleteLuckydraw = (id) => async (dispatch) => {
     }
   };
   
+  
+// get all products
+export const getAllLuckydraws = () => async (dispatch) => {
+  try {
+    dispatch({
+      type: "getAllLuckydrawsRequest",
+    });
+
+    const { data } = await axios.get(`${server}/luckydraw/get-all-luckydraws`);
+    dispatch({
+      type: "getAllLuckydrawsRequestSuccess",
+      payload: data.luckydraws,
+    });
+  } catch (error) {
+    let errorMessage = "An unexpected error occurred";
+    if (error.response && error.response.data && error.response.data.message) {
+      errorMessage = error.response.data.message;
+    } else if (error.message) {
+      errorMessage = error.message;
+    }
+    dispatch({
+      type: "getAllLuckydrawsRequestFail",
+      payload: errorMessage,
+    });
+  }
+};
