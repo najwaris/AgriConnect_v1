@@ -292,7 +292,7 @@ const Luckydraws = () => {
   }, []);
   return (
     <div className="px-5">
-      <h2 className="text-2xl font-bold mb-4">Your Winning Bids</h2>
+      <h2 className="text-2xl font-bold mb-4">Your Winning Luckydraws</h2>
       {Array.isArray(userLuckydraws) && userLuckydraws.length > 0 ? (
         userLuckydraws.map((luckydraw) => (
           <div key={luckydraw._id} className="mb-3">

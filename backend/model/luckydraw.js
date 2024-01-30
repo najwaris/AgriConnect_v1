@@ -53,6 +53,10 @@ const luckydrawSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  Orderstatus: {
+    type: String,
+    default: "Pending Pickup",
+  },
 });
 
 module.exports = mongoose.model("Luckydraw", luckydrawSchema);

@@ -24,6 +24,8 @@ const Luckydrawcard = ({data}) => {
               <p className="text-sm font-semibold">Phone: +(60){data.shop.phoneNumber}</p>
               <p className="text-sm font-semibold">Email: {data.shop.email}</p>
               <p className="text-sm font-semibold">Shop Address: {data.shop.address}</p>
+              <br />
+              <p className="text-sm font-semibold">Status: {data.Orderstatus}</p>
           </div>
       </div>
   </div>

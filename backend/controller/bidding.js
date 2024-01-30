@@ -199,4 +199,70 @@ router.get("/user-winning-bids/:userId", async (req, res,next) => {
   }
 });
 
+router.get("/ended-biddings/:shopId", async (req, res) => {
+  try {
+      const shopId  = req.params.shopId;
+
+      const endedBiddings = await Bidding.find({
+          shopId: shopId,
+          status: "Ended"
+      }).populate('highestBidder'); // Populating the highestBidder field
+
+      res.status(200).json({
+          success: true,
+          endedBiddings,
+      });
+
+  } catch (error) {
+      res.status(500).json({ message: "An error occurred", error: error.message });
+  }
+});
+
+router.patch("/Order-complete/:biddingId", async (req, res) => {
+  try {
+      const  biddingId = req.params.biddingId;
+
+      const updatedBidding = await Bidding.findByIdAndUpdate(
+          biddingId,
+          { Orderstatus: "Completed" },
+          { new: true }
+      );
+
+      if (!updatedBidding) {
+          return res.status(404).json({ message: "Bidding not found" });
+      }
+
+      res.status(200).json({
+          success: true,
+          updatedBidding
+      });
+  } catch (error) {
+      res.status(500).json({ message: "An error occurred", error: error.message });
+  }
+});
+
+router.patch("/Order-cancel/:biddingId", async (req, res) => {
+  try {
+      const  biddingId  = req.params.biddingId;
+
+      const updatedBidding = await Bidding.findByIdAndUpdate(
+          biddingId,
+          { Orderstatus: "Cancelled" },
+          { new: true }
+      );
+
+      if (!updatedBidding) {
+          return res.status(404).json({ message: "Bidding not found" });
+      }
+
+      res.status(200).json({
+          success: true,
+          updatedBidding
+      });
+  } catch (error) {
+      res.status(500).json({ message: "An error occurred", error: error.message });
+  }
+});
+
+
 module.exports = router;
