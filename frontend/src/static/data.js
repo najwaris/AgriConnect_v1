@@ -12,6 +12,10 @@ export const navItems = [
     title: "Lucky Draws",
     url: "/luckydraw",
   },
+  {
+    title: "Chatbot",
+    url: "/chatbotUser",
+  },
 ];
 
 // branding data

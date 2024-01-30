@@ -16,6 +16,7 @@ import {
   HomePage,
   BiddingPage,
   LuckyDrawPage,
+  ChatbotUserPage,
   ProfilePage,
   ShopCreatePage,
   SellerActivationPage,
@@ -24,7 +25,7 @@ import {
 import Store from "./redux/store.js";
 import { loadSeller, loadUser } from "./redux/actions/user.js";
 import ProtectedRoute from "./routes/ProtectedRoute.js";
-import { ShopHomePage, ShopDashboardPage, ShopCreateBidding, ShopAllBiddings, ShopCreateLuckydraw, ShopAllLuckydraws } from "./routes/ShopRoutes.js";
+import { ShopHomePage, ShopDashboardPage, ShopCreateBidding, ShopAllBiddings, ShopCreateLuckydraw, ShopAllLuckydraws, ChatbotPage } from "./routes/ShopRoutes.js";
 import SellerProtectedRoute from "./routes/SellerProtectedRoute.js";
 
 const App = () => {
@@ -46,6 +47,7 @@ const App = () => {
             />
             <Route path="/bidding" element={<BiddingPage />} />
             <Route path="/luckyDraws" element={<LuckyDrawPage />} />
+            <Route path="/chatbotUser" element={<ChatbotUserPage />} />
             <Route
               path="/profile"
               element={
@@ -70,6 +72,14 @@ const App = () => {
               element={
                 <SellerProtectedRoute  >
                   <ShopDashboardPage />
+                </SellerProtectedRoute>
+              }
+            />
+            <Route
+              path="/dashboard/chatbot"
+              element={
+                <SellerProtectedRoute  >
+                  <ChatbotPage />
                 </SellerProtectedRoute>
               }
             />
