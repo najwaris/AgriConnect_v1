@@ -14,7 +14,7 @@ const Hero = () => {
       <br />
       <div className={`${styles.section} w-[90%] 800px:w-[60%]`}>
         <h2
-          className={`text-[20px] leading-[1.2] 800px:text-[60px] text-[#66b28c] font-[600] capitalize mt-5`}
+          className={`text-[20px] leading-[1.2] 800px:text-[60px] text-teal-500 font-[600] capitalize mt-5`}
         >
           Best Collection for <br /> Fresh and Local Crops
         </h2>
@@ -30,7 +30,7 @@ const Hero = () => {
 
 
         <h3
-          className={`text-[8px] leading-[1.2] 800px:text-[60px] text-[#66b28c] font-[600] capitalize`}
+          className={`text-[20px] leading-[1.2] 800px:text-[60px] text-teal-500 font-[600] capitalize mt-5`}
         > Our Services:
         </h3>
 
@@ -43,7 +43,7 @@ const Hero = () => {
 
         <Link to="/bidding" className="inline-block">
           <div className={`${styles.button} mt-5`}>
-            <span className="text-[#fff] font-[Poppins] text-[16px]">
+            <span className="text-[#fff] font-[Poppins] text-[14px]">
               Buy Now
             </span>
           </div>
@@ -51,8 +51,8 @@ const Hero = () => {
 
         <Link to="/luckydraw" className="inline-block ml-10 mb-5">
           <div className={`${styles.button} mt-5`}>
-            <span className="text-[#fff] font-[Poppins] text-[16px]">
-              Join Donations
+            <span className="text-[#fff] font-[Poppins] text-[14px]">
+              Join Lucky Draw
             </span>
           </div>
         </Link>

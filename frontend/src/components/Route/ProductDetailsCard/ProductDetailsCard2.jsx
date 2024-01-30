@@ -118,7 +118,7 @@ const ProductDetailsCard2 = ({ setOpen, data }) => {
                                         type="submit"
                                         className="bg-gradient-to-r from-teal-400 to-teal-500 text-white font-bold contained rounded px-4 py-2 shadow-lg hover:opacity-75 transition duration-300 ease-in-out"
                                     >
-                                        Join Donation
+                                        Join Lucky Draw
                                     </button>
                                 </form>
 
