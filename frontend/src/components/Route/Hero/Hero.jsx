@@ -49,7 +49,7 @@ const Hero = () => {
           </div>
         </Link>
 
-        <Link to="/luckydraw" className="inline-block ml-10 mb-5">
+        <Link to="/luckydraws" className="inline-block ml-10 mb-5">
           <div className={`${styles.button} mt-5`}>
             <span className="text-[#fff] font-[Poppins] text-[14px]">
               Join Lucky Draw

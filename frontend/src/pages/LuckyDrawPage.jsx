@@ -4,6 +4,7 @@ import styles from "../styles/styles";
 import ProductCard2 from "../components/Route/ProductCard/ProductCard2";
 import { useSearchParams } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Footer from "../components/Layout/Footer";
 
 const LuckyDrawPage = () => {
   const [searchParams] = useSearchParams();
@@ -41,6 +42,7 @@ const LuckyDrawPage = () => {
           </h1>
         ) : null}
       </div>
+      <Footer />
     </div>
   );
 };
