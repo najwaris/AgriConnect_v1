@@ -19,6 +19,7 @@ const Header = ({ activeHeading }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchData, setSearchData] = useState(null);
 
+
   const handleSearchChange = (e) => {
     const term = e.target.value;
     setSearchTerm(term);

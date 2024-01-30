@@ -45,7 +45,7 @@ const Signup = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-r from-teal-400 to-teal-500 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
           Register as a new user
@@ -169,9 +169,9 @@ const Signup = () => {
                 Submit
               </button>
             </div>
-            <div className={`${styles.noramlFlex} w-full`}>
+            <div className={`${styles.noramlFlex} w-full ml-2 block text-sm text-gray-900`}>
               <h4>Already have an account?</h4>
-              <Link to="/login" className="text-blue-600 pl-2">
+              <Link to="/login" className="font-medium text-blue-600 hover:text-blue-500 pl-40">
                 Sign In
               </Link>
             </div>

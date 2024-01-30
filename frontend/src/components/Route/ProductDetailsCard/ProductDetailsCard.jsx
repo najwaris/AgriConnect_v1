@@ -104,15 +104,18 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                                 <br />
 
                                 <form onSubmit={handleSubmit}>
-                                    <label className="block mb-2 text-sm font-medium text-gray-900">Your Bid Price:</label>
+                                    <label className="block mb-2 text-sm font-bold text-[30px] text-gray-900">Your Bid Price:</label>
                                     <input
                                         type="number"
                                         name="bidPrice"
                                         value={bidPrice}
                                         onChange={handleChange}
                                         placeholder="Enter your bid price"
+                                        className="appearance-none block w-full px-3 py-2 border border-teal-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-teal-500 sm:text-sm"
                                         required
                                     />
+
+                                    <br />
 
                                     <button
                                         type="submit"

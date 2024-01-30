@@ -7,36 +7,36 @@ import { server } from "../../server";
 import { toast } from "react-toastify";
 
 const Login = () => {
-    const navigate = useNavigate();
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [visible, setVisible] = useState(false);
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [visible, setVisible] = useState(false);
 
-    const handleSubmit = async (e) => {
-      e.preventDefault();
-  
-      await axios
-        .post(
-          `${server}/user/login-user`,
-          {
-            email,
-            password,
-          },
-          { withCredentials: true }
-        )
-        .then((res) => {
-          toast.success("Login Success!");
-          navigate("/");
-          window.location.reload(true); 
-        })
-        .catch((err) => {
-          toast.error(err.response.data.message);
-        });
-    };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    await axios
+      .post(
+        `${server}/user/login-user`,
+        {
+          email,
+          password,
+        },
+        { withCredentials: true }
+      )
+      .then((res) => {
+        toast.success("Login Success!");
+        navigate("/");
+        window.location.reload(true);
+      })
+      .catch((err) => {
+        toast.error(err.response.data.message);
+      });
+  };
 
 
-return (
-    <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+  return (
+    <div className="min-h-screen bg-gradient-to-r from-teal-400 to-teal-500 text-white font-bold contained rounded px-4 py-2 shadow-lg flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
           Login to your account
@@ -128,9 +128,9 @@ return (
                 Submit
               </button>
             </div>
-            <div className={`${styles.noramlFlex} w-full`}>
+            <div className={`${styles.noramlFlex} w-full ml-2 block text-sm text-gray-900`}>
               <h4>Not have any account?</h4>
-              <Link to="/sign-up" className="text-blue-600 pl-2">
+              <Link to="/sign-up" className="font-medium text-blue-600 hover:text-blue-500 pl-40">
                 Sign Up
               </Link>
             </div>
