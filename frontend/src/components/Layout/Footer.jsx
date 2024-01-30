@@ -11,11 +11,12 @@ const Footer = () => {
     <div className="bg-[#000] text-white">
       <div className="grid grid-cols-1 sm:gird-cols-3 lg:grid-cols-4 gap-6 sm:px-8 px-5 py-16 sm:text-center">
         <ul className="px-5 text-center sm:text-start flex sm:block flex-col items-center">
-          <img
-            src="https://www.logomaker.com/api/main/images/1j+ojlxEOMkX9Wyqfhe43D6kh...CHpR9PkRbFwXs1M3EMoAJtlyArhfRt9...szPExevg9C3ktKMcs8"
-            alt=""
-            style={{ filter: "brightness(0) invert(1)" }}
-          />
+          <Link to="/">
+            <img
+              src="https://www.logomaker.com/api/main/images/1j+ojlxEOMkX9Wyqfhe43D6kh...CHpR9PkRbFwXs1M3EMoAJtlyArhfRt9...szPExevg9C3ktKMcs8"
+              alt=""
+            />
+          </Link>
           <br />
           <p>The virtual stop centre to buy and sell fresh and local crops to your table.</p>
         </ul>

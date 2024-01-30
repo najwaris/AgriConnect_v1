@@ -28,22 +28,22 @@ const CreateLuckydraw = () => {
 
   const minEndDate = startDate
     ? new Date(new Date(startDate).getTime() + 1 * 24 * 60 * 60 * 1000)
-        .toISOString()
-        .slice(0, 10)
+      .toISOString()
+      .slice(0, 10)
     : "";
 
-    const startDateTime = new Date(startDate);
+  const startDateTime = new Date(startDate);
 
   useEffect(() => {
     if (error) {
       toast.error(error);
     }
-    if (success && isSubmitted ) {
+    if (success && isSubmitted) {
       toast.success("Lucky Draw created successfully!");
       navigate("/dashboard/luckydraws");
       window.location.reload();
     }
-  }, [dispatch, error, success,isSubmitted]);
+  }, [dispatch, error, success, isSubmitted]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -88,9 +88,9 @@ const CreateLuckydraw = () => {
             type="text"
             name="name"
             value={name}
-            className="mt-2 appearance-none block w-full px-3 h-[35px] border border-gray-300 rounded-[3px] placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+            className="mt-2 appearance-none block w-full px-3 h-[35px] border border-teal-600 rounded-[3px] placeholder-gray-400 focus:outline-none focus:ring-teal-500 focus:border-teal-500 sm:text-sm"
             onChange={(e) => setName(e.target.value)}
-            placeholder="Enter your Lucky Draw name..."
+            placeholder="Enter your Lucky Draw name"
           />
         </div>
         <br />
@@ -105,7 +105,7 @@ const CreateLuckydraw = () => {
             type="text"
             name="description"
             value={description}
-            className="mt-2 appearance-none block w-full pt-2 px-3 border border-gray-300 rounded-[3px] placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+            className="mt-2 appearance-none block w-full pt-2 px-3 border border-teal-600 rounded-[3px] placeholder-gray-400 focus:outline-none focus:ring-teal-500 focus:border-teal-500 sm:text-sm"
             onChange={(e) => setDescription(e.target.value)}
             placeholder="Enter the description for the Lucky Draw crops, please state clearly the defects on the crops (if any)"
           ></textarea>
@@ -116,7 +116,7 @@ const CreateLuckydraw = () => {
             Category <span className="text-red-500">*</span>
           </label>
           <select
-            className="w-full mt-2 border h-[35px] rounded-[5px]"
+            className="w-full mt-2 border h-[35px] rounded-[5px] border-teal-600"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
           >
@@ -136,9 +136,9 @@ const CreateLuckydraw = () => {
             type="text"
             name="tags"
             value={tags}
-            className="mt-2 appearance-none block w-full px-3 h-[35px] border border-gray-300 rounded-[3px] placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+            className="mt-2 appearance-none block w-full px-3 h-[35px] border border-teal-600 rounded-[3px] placeholder-gray-400 focus:outline-none focus:ring-teal-500 focus:border-teal-500 sm:text-sm"
             onChange={(e) => setTags(e.target.value)}
-            placeholder="Enter your lucky draw tags..."
+            placeholder="Enter your lucky draw tags"
           />
         </div>
         <br />
@@ -150,7 +150,7 @@ const CreateLuckydraw = () => {
             name="date"
             id="start-date"
             value={startDate}
-            className="mt-2 appearance-none block w-full px-3 h-[35px] border border-gray-300 rounded-[3px] placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+            className="mt-2 appearance-none block w-full px-3 h-[35px] border border-teal-600 rounded-[3px] placeholder-gray-400 focus:outline-none focus:ring-teal-500 focus:border-teal-500 sm:text-sm"
             readOnly
           />
         </div>
@@ -163,7 +163,7 @@ const CreateLuckydraw = () => {
             name="date"
             id="end-date"
             value={endDate ? endDate.toISOString().slice(0, 10) : ""}
-            className="mt-2 appearance-none block w-full px-3 h-[35px] border border-gray-300 rounded-[3px] placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+            className="mt-2 appearance-none block w-full px-3 h-[35px] border border-teal-600 rounded-[3px] placeholder-gray-400 focus:outline-none focus:ring-teal-500 focus:border-teal-500 sm:text-sm"
             onChange={handleEndDateChange}
             min={minEndDate}
             placeholder="Enter your minimum bidding price (RM) ..."
@@ -202,7 +202,7 @@ const CreateLuckydraw = () => {
             <input
               type="submit"
               value="Create"
-              className="mt-2 cursor-pointer appearance-none text-center block w-full px-3 h-[35px] border border-gray-300 rounded-[3px] placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+              className="mt-2 cursor-pointer appearance-none text-center block w-full px-3 h-[35px] border bg-gradient-to-r from-teal-400 to-teal-500 text-white font-bold rounded-[3px] placeholder-gray-400 focus:outline-none shadow-lg hover:opacity-75 transition duration-300 ease-in-out sm:text-sm"
             />
           </div>
         </div>

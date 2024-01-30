@@ -53,11 +53,27 @@ const About = () => {
             <div className="mx-auto space-y-4 mb-8">
                 <div className="grid grid-cols-1 gap-4">
                     <div className="mt-4 mr-8 ml-8 bg-white rounded-lg shadow-md p-4 text-justify">
-                        <ul className="list-disc pl-4 text-lg">
-                            <li >Pioneer Platform: We're the first website to connect farmers directly with end users through a unique bidding system.</li>
-                            <li>Empowering Farmers: We give farmers control over their pricing and connect them with a wider market, maximizing their profit potential.</li>
-                            <li>Fair & Transparent: Our bidding system ensures competitive pricing and transparent transactions, benefiting both farmers and buyers.</li>
-                            <li>Thriving Community: We foster a supportive community where farmers can connect with buyers, share best practices, and build lasting relationships.</li>
+                        <ul className="list-disc pl-4">
+                            <li >
+                                <span className="font-bold text-lg">Pioneer Platform: </span>
+                                <br />
+                                <span className="ml-4 text-[16px]">We're the first website to connect farmers directly with end users through a unique bidding system. </span>
+                            </li>
+                            <li>
+                                <span className="font-bold text-lg">Empowering Farmers: </span>
+                                <br />
+                                <span className="ml-4 text-[16px]">We give farmers control over their pricing and connect them with a wider market, maximizing their profit potential. </span>
+                            </li>
+                            <li>
+                                <span className="font-bold text-lg">Fair & Transparent: </span>
+                                <br />
+                                <span className="ml-4 text-[16px]">Our bidding system ensures competitive pricing and transparent transactions, benefiting both farmers and buyers. </span>
+                            </li>
+                            <li>
+                                <span className="font-bold text-lg">Thriving Community: </span>
+                                <br />
+                                <span className="ml-4 text-[16px]">We foster a supportive community where farmers can connect with buyers, share best practices, and build lasting relationships. </span>
+                            </li>
                         </ul>
                     </div>
                 </div>
