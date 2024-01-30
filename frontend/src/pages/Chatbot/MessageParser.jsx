@@ -10,6 +10,10 @@ class MessageParser {
     if (lowerCaseMessage.includes("hello")) {
       this.actionProvider.greet()
     }
+
+    if (lowerCaseMessage.includes("agriculture")) {
+      this.actionProvider.handleAgricultureList();
+    }
   }
 }
   
