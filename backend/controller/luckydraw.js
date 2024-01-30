@@ -86,4 +86,21 @@ router.delete(
   })
 );
 
+
+// get all products
+router.get(
+  "/get-all-luckydraws",
+  catchAsyncErrors(async (req, res, next) => {
+    try {
+      const luckydraws = await Luckydraw.find().sort({ createdAt: -1 });
+      res.status(201).json({
+        success: true,
+        luckydraws,
+      });
+    } catch (error) {
+      return next(new ErrorHandler(error, 400));
+    }
+  })
+);
+
 module.exports = router;

@@ -26,14 +26,21 @@ import { loadSeller, loadUser } from "./redux/actions/user.js";
 import ProtectedRoute from "./routes/ProtectedRoute.js";
 import { ShopHomePage, ShopDashboardPage, ShopCreateBidding, ShopAllBiddings, ShopCreateLuckydraw, ShopAllLuckydraws } from "./routes/ShopRoutes.js";
 import SellerProtectedRoute from "./routes/SellerProtectedRoute.js";
+import { getAllBiddings } from "./redux/actions/bidding.js";
+import { useDispatch } from "react-redux";
+import { getAllLuckydraws } from "./redux/actions/luckydraw.js";
 
 
 const App = () => {
+
+  const dispatch = useDispatch();
   
   useEffect(() => {
     Store.dispatch(loadUser());
     Store.dispatch(loadSeller());
-  }, []);
+    Store.dispatch(getAllBiddings());
+    Store.dispatch(getAllLuckydraws());
+  }, [dispatch]);
 
   return (
         <BrowserRouter>

@@ -11,6 +11,8 @@ const AllBiddings = () => {
   const { biddings, isLoading } = useSelector((state) => state.biddings);
   const { seller } = useSelector((state) => state.seller);
 
+  console.log(biddings);
+
   const dispatch = useDispatch();
 
   useEffect(() => {

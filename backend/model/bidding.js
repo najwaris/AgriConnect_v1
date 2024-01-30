@@ -32,6 +32,7 @@ const biddingSchema = new mongoose.Schema({
   },
   highestBid: {
     type: Number,
+    default: 0,
   },
   highestBidder: {
     type: mongoose.Schema.Types.ObjectId,

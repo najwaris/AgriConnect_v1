@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const CountDown = ({ data }) => {
+const CountDown2 = ({ data }) => {
     const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
     const [isTimerCompleted, setIsTimerCompleted] = useState(false);
     const [hasCountdownStarted, setHasCountdownStarted] = useState(false);
@@ -63,4 +63,4 @@ const CountDown = ({ data }) => {
   );
 };
 
-export default CountDown;
+export default CountDown2;
