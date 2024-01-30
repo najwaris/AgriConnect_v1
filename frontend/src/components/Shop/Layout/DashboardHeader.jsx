@@ -12,11 +12,11 @@ const DashboardHeader = () => {
       <div className="w-full h-[80px] bg-white shadow sticky top-0 left-0 z-30 flex items-center justify-between px-4">
         <div>
           <Link to="/dashboard">
-            <span className="font-style: italic font-extrabold text-4xl text-green-600">
+            <span className="font-style: italic font-extrabold text-4xl text-teal-600">
               A
             </span>
             <span className="font-style: italic text-3xl ml-1">gri</span>
-            <span className="font-style: italic font-extrabold text-4xl text-green-600 ml-1">
+            <span className="font-style: italic font-extrabold text-4xl text-teal-600 ml-1">
               C
             </span>
             <span className="font-style: italic text-3xl ml-1">onnect</span>
@@ -31,7 +31,7 @@ const DashboardHeader = () => {
                 className="mx-5 cursor-pointer"
               />
             </Link>
-            <Link to="/dashboard/biddings" className="800px:block hidden">
+            <Link to="/dashboard-biddings" className="800px:block hidden">
               <FiShoppingBag
                 color="#555"
                 size={30}
