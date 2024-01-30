@@ -2,28 +2,42 @@ import React, { useState } from "react";
 import { AiOutlineMessage, AiOutlineShoppingCart } from "react-icons/ai";
 import { RxCross1 } from "react-icons/rx";
 import styles from "../../../styles/styles";
-import CountDown from "../../Events/CountDown";
-import { backend_url } from "../../../server";
+import CountDown2 from "../../Events/CountDown2.jsx";
+import { backend_url, server } from "../../../server.js";
+import axios from "axios";
+import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
 
-const ProductDetailsCard = ({ setOpen, data }) => {
+const ProductDetailsCard2 = ({ setOpen, data }) => {
   const [count, setCount] = useState(1);
   const [click, setClick] = useState(false);
   const [bidPrice, setBidPrice] = useState("");
-  //const [select, setSelect] = useState(false);
+  const { user } = useSelector((state) => state.user);
 
   const handleMessageSubmit = () => {};
 
-  const handleChange = (e) => {
-    const { value } = e.target;
-    setBidPrice(value);
-  };
-
-  const handleSubmit = (e) => {
+  const handleClick = async (e) => {
     e.preventDefault();
-    // Handle the bidding form submission here
-    console.log("Bidding form submitted with price:", bidPrice);
-    // Reset the bidPrice state if needed
-    setBidPrice("");
+
+    const luckydrawId = data._id; // Replace with your actual luckydraw ID from the component's data
+    const userId = user._id; // Replace with the actual user ID
+
+    try {
+      const response = await axios.post(
+        `${server}/luckydraw/add-participant/${luckydrawId}`,
+        {
+          userId: userId,
+        }
+      );
+      toast.success(response.status.message);
+      window.location.reload(true);
+    } catch (error) {
+      toast.error(
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : "An error occurred"
+      );
+    }
   };
 
   return (
@@ -75,32 +89,23 @@ const ProductDetailsCard = ({ setOpen, data }) => {
 
                 <div className="flex pt-3">
                   <h4 className={`${styles.productDiscountPrice}`}>
-                    {data.minimumPrice ? "RM" + data.minimumPrice : null}
+                    {data.discount_price}$
                   </h4>
+                  <h3 className={`${styles.price}`}>
+                    {data.price ? data.price + "$" : null}
+                  </h3>
                 </div>
 
                 <br />
                 <br />
 
-                                <form onSubmit={handleSubmit}>
-                                    <label className="block mb-2 text-sm font-bold text-[30px] text-gray-900">Your Bid Price:</label>
-                                    <input
-                                        type="number"
-                                        name="bidPrice"
-                                        value={bidPrice}
-                                        onChange={handleChange}
-                                        placeholder="Enter your bid price"
-                                        className="appearance-none block w-full px-3 py-2 border border-teal-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-teal-500 sm:text-sm"
-                                        required
-                                    />
-
-                                    <br />
-
+                <form>
                   <button
-                    type="submit"
+                    type="button"
                     className="bg-gradient-to-r from-teal-400 to-teal-500 text-white font-bold contained rounded px-4 py-2 shadow-lg hover:opacity-75 transition duration-300 ease-in-out"
+                    onClick={handleClick}
                   >
-                    Submit Bid
+                    Join Donation
                   </button>
                 </form>
 
@@ -108,7 +113,7 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                 <br />
 
                 <div>
-                  <CountDown data={data}/>
+                  <CountDown2 data={data} />
                 </div>
 
                 <div
@@ -129,4 +134,4 @@ const ProductDetailsCard = ({ setOpen, data }) => {
   );
 };
 
-export default ProductDetailsCard;
+export default ProductDetailsCard2;

@@ -21,19 +21,28 @@ import {
   ShopCreatePage,
   SellerActivationPage,
   ShopLoginPage,
+  FAQPage,
 } from "./routes/Routes.js";
 import Store from "./redux/store.js";
 import { loadSeller, loadUser } from "./redux/actions/user.js";
 import ProtectedRoute from "./routes/ProtectedRoute.js";
 import { ShopHomePage, ShopDashboardPage, ShopCreateBidding, ShopAllBiddings, ShopCreateLuckydraw, ShopAllLuckydraws, ChatbotPage } from "./routes/ShopRoutes.js";
 import SellerProtectedRoute from "./routes/SellerProtectedRoute.js";
+import { getAllBiddings } from "./redux/actions/bidding.js";
+import { useDispatch } from "react-redux";
+import { getAllLuckydraws } from "./redux/actions/luckydraw.js";
+
 
 const App = () => {
+
+  const dispatch = useDispatch();
   
   useEffect(() => {
     Store.dispatch(loadUser());
     Store.dispatch(loadSeller());
-  }, []);
+    Store.dispatch(getAllBiddings());
+    Store.dispatch(getAllLuckydraws());
+  }, [dispatch]);
 
   return (
         <BrowserRouter>
@@ -41,6 +50,7 @@ const App = () => {
             <Route path="/" element={<HomePage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/sign-up" element={<SignupPage />} />
+            <Route path ="/faq" element={<FAQPage />} />
             <Route
               path="/activation/:activation_token"
               element={<ActivationPage />}

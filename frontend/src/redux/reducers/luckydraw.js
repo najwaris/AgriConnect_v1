@@ -45,6 +45,17 @@ const initialState = {
           state.error = action.payload;
           state.success = false;
         })
+        .addCase("getAllLuckydrawsRequest", (state) => {
+          state.isLoading = true;
+        })
+        .addCase("getAllLuckydrawsRequestSuccess", (state, action) => {
+          state.isLoading = false;
+          state.allLuckydraws = action.payload;
+        })
+        .addCase("getAllLuckydrawsRequestFail", (state, action) => {
+          state.isLoading = false;
+          state.error = action.payload;
+        })
       .addCase('clearErrors', (state) => {
           state.error = null;
         });

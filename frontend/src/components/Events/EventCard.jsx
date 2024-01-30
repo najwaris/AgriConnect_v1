@@ -3,11 +3,11 @@ import styles from "../../styles/styles";
 import CountDown from "./CountDown";
 import { Link } from "react-router-dom";
 
-const EventCard = () => {
+const EventCard = ({active}) => {
 
     return (
         <div
-            className={`w-full block bg-[#cbe5cb] rounded-lg lg:flex p-2 mb-12`}
+            className={`w-full block bg-[#FFFFFF] rounded-lg ${active ? "unset" : "mb-12"} lg:flex p-2 mb-12`}
         >
             <div className="w-full lg:-w[50%] m-auto">
                 <img
@@ -46,7 +46,7 @@ const EventCard = () => {
                             999$
                         </h5>
                     </div>
-                    <span className="pr-3 font-[400] text-[17px] text-[#3f5f3f]">
+                    <span className="pr-3 font-[400] text-[17px] text-[#68d284]">
                         {/* {data.total_sell} sold */}
                         120 sold
                     </span>

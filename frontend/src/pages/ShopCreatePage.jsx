@@ -12,7 +12,7 @@ const ShopCreatePage = () => {
     if (isSeller === true) {
       navigate("/dashboard");
     }
-  }, []);
+  }, [isSeller]);
 
   return (
     <div>

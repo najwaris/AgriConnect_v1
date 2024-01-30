@@ -29,11 +29,10 @@ export const createBidding = (newForm) => async (dispatch) => {
 };
 
 //get All Biddings
-
 export const getAllBiddingsShop = (id) => async (dispatch) => {
   try {
     dispatch({
-      type: "getAllbiddingRequest",
+      type: "getAllShopbiddingRequest",
     });
 
     const { data } = await axios.get(
@@ -41,12 +40,12 @@ export const getAllBiddingsShop = (id) => async (dispatch) => {
     );
 
     dispatch({
-      type: "getAllbiddingRequestSuccess",
+      type: "getAllShopbiddingRequestSuccess",
       payload: data.biddings,
     });
   } catch (error) {
     dispatch({
-      type: "getAllbiddingRequestFail",
+      type: "getAllShopbiddingRequestFail",
       payload: error.response.data.message,
     });
   }
@@ -72,6 +71,32 @@ export const deleteBidding = (id) => async (dispatch) => {
     dispatch({
       type: "deletebiddingRequestFail",
       payload: error.response.data.message,
+    });
+  }
+};
+
+// get all products
+export const getAllBiddings = () => async (dispatch) => {
+  try {
+    dispatch({
+      type: "getAllbiddingRequest",
+    });
+
+    const { data } = await axios.get(`${server}/bidding/get-all-biddings`);
+    dispatch({
+      type: "getAllbiddingRequestSuccess",
+      payload: data.biddings,
+    });
+  } catch (error) {
+    let errorMessage = "An unexpected error occurred";
+    if (error.response && error.response.data && error.response.data.message) {
+      errorMessage = error.response.data.message;
+    } else if (error.message) {
+      errorMessage = error.message;
+    }
+    dispatch({
+      type: "getAllbiddingRequestFail",
+      payload: errorMessage,
     });
   }
 };

@@ -87,4 +87,20 @@ router.delete(
   })
 );
 
+// get all products
+router.get(
+  "/get-all-biddings",
+  catchAsyncErrors(async (req, res, next) => {
+    try {
+      const biddings = await Bidding.find().sort({ createdAt: -1 });
+      res.status(201).json({
+        success: true,
+        biddings,
+      });
+    } catch (error) {
+      return next(new ErrorHandler(error, 400));
+    }
+  })
+);
+
 module.exports = router;
