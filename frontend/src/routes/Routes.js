@@ -4,6 +4,7 @@ import ActivationPage from "../pages/ActivationPage";
 import HomePage from "../pages/HomePage";
 import BiddingPage  from "../pages/BiddingPage";
 import LuckyDrawPage  from "../pages/LuckyDrawPage";
+import ChatbotUserPage  from "../pages/ChatbotUserPage";
 import ProfilePage from "../pages/ProfilePage";
 import ShopCreatePage from "../pages/ShopCreatePage";
 import SellerActivationPage  from "../pages/SellerActivationPage";
@@ -18,6 +19,7 @@ export {
     HomePage,
     BiddingPage,
     LuckyDrawPage,
+    ChatbotUserPage,
     ProfilePage,
     ShopCreatePage,
     SellerActivationPage,
