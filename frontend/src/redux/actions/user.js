@@ -68,14 +68,13 @@ export const updateUserInformation =
           },
         }
       );
-
       dispatch({
-        type: "updateUserInfoSuccess",
+        type: "updateUserInfoRequestSuccess",
         payload: data.user,
       });
     } catch (error) {
       dispatch({
-        type: "updateUserInfoFailed",
+        type: "updateUserInfoRequestFail",
         payload: error.response.data.message,
       });
     }
