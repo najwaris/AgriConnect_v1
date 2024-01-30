@@ -104,7 +104,7 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                                 <br />
 
                                 <form onSubmit={handleSubmit}>
-                                    <label className="block mb-2 text-sm font-medium text-gray-900">Your Bid Price:</label>
+                                    <label className="block mb-2 text-sm font-bold text-[30px] text-gray-900">Your Bid Price:</label>
                                     <input
                                         type="number"
                                         name="bidPrice"
