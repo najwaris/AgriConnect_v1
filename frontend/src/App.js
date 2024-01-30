@@ -21,6 +21,7 @@ import {
   SellerActivationPage,
   ShopLoginPage,
   FAQPage,
+  AboutUs,
 } from "./routes/Routes.js";
 import Store from "./redux/store.js";
 import { loadSeller, loadUser } from "./redux/actions/user.js";
@@ -43,6 +44,7 @@ const App = () => {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/sign-up" element={<SignupPage />} />
             <Route path ="/faq" element={<FAQPage />} />
+            <Route path ="/aboutus" element={<AboutUs />} />
             <Route
               path="/activation/:activation_token"
               element={<ActivationPage />}

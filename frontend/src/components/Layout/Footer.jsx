@@ -22,14 +22,14 @@ const Footer = () => {
 
         <ul className="text-center sm:text-start">
           <h1 className="mb-1 font-semibold text-teal-600">Company</h1>
-          {footerProductLinks.map((link, index) => (
+          {footerProductLinks.map((i, index) => (
             <li key={index}>
               <Link
                 className="text-gray-400 hover:text-teal-400 duration-300
                    text-sm cursor-pointer leading-6"
-                to={link.link}
+                to={i.link}
               >
-                {link.name}
+                {i.name}
               </Link>
             </li>
           ))}
