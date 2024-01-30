@@ -2,7 +2,7 @@ import React from "react";
 import { RxPerson } from "react-icons/rx";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineShopping, AiOutlineGift } from "react-icons/ai";
-import { RiLogoutBoxRLine } from "react-icons/ri";
+import { RiLockPasswordLine, RiLogoutBoxRLine } from "react-icons/ri";
 import axios from "axios";
 import { server } from "../../server";
 import { toast } from "react-toastify";
@@ -54,10 +54,19 @@ const ProfileSidebar = ({ setActive, active }) => {
       </div>
       <div
         className="flex items-center cursor-pointer w-full mb-8"
-        onClick={() => setActive(4) || logoutHandler()}
+        onClick={() => setActive(4)}
       >
-        <RiLogoutBoxRLine size={20} color={active === 4 ? "red" : ""} />
+        <RiLockPasswordLine size={20} color={active === 4 ? "red" : ""} />
         <span className={`pl-3 ${active === 4 ? "text-[red]" : ""}`}>
+          Change Password
+        </span>
+      </div>
+      <div
+        className="flex items-center cursor-pointer w-full mb-8"
+        onClick={() => setActive(5) || logoutHandler()}
+      >
+        <RiLogoutBoxRLine size={20} color={active === 5 ? "red" : ""} />
+        <span className={`pl-3 ${active === 5 ? "text-[red]" : ""}`}>
           Log out
         </span>
       </div>
