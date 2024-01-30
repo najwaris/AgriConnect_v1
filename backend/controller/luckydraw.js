@@ -185,4 +185,21 @@ router.post("/select-winner/:id", async (req, res, next) => {
   }
 });
 
+router.get("/user-won-luckydraws/:userId", async (req, res) => {
+  try {
+      const  userId  = req.params.userId;
+
+      const wonLuckyDraws = await Luckydraw.find({
+          winnerID: userId,
+          status: "Ended"
+      })
+
+      res.status(200).json({
+          success: true,
+          wonLuckyDraws,
+      });
+  } catch (error) {
+      res.status(500).json({ message: "An error occurred", error: error.message });
+  }
+});
 module.exports = router;

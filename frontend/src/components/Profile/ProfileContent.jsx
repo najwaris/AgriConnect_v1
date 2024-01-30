@@ -6,6 +6,8 @@ import styles from "../../styles/styles";
 import { updateUserInformation } from "../../redux/actions/user";
 import { toast } from "react-toastify";
 import axios from "axios";
+import Biddingcard from "../Profile/Biddingcard";
+import Luckydrawcard from "../Profile/Luckydrawcard.jsx";
 
 const ProfileContent = ({ active }) => {
   const { user, error, successMessage } = useSelector((state) => state.user);
@@ -47,7 +49,8 @@ const ProfileContent = ({ active }) => {
       })
       .then((res) => {
         window.location.reload();
-      }).catch((error)=>{
+      })
+      .catch((error) => {
         toast.error(error);
       });
   };
@@ -137,13 +140,21 @@ const ProfileContent = ({ active }) => {
       )}
 
       {/* Biddings */}
-      {active === 2 && <div>Biddings</div>}
+      {active === 2 && (
+        <div>
+          <Biddings />
+        </div>
+      )}
 
       {/* lucky Draws  */}
-      {active === 3 && <div>Lucky Draws</div>}
+      {active === 3 && <div><Luckydraws/></div>}
 
       {/* lucky Draws  */}
-      {active === 4 && <div><ChangePassword /></div>}
+      {active === 4 && (
+        <div>
+          <ChangePassword />
+        </div>
+      )}
     </div>
   );
 };
@@ -224,6 +235,77 @@ const ChangePassword = () => {
     </div>
   );
 };
+
+const Biddings = () => {
+  const { user, error, successMessage } = useSelector((state) => state.user);
+  const [userBiddings, setUserBiddings] = useState([]);
+
+  useEffect(() => {
+    const fetchUserBiddings = async () => {
+      try {
+        const response = await axios.get(
+          `${server}/bidding/user-winning-bids/${user._id}`
+        ); // Replace with your actual API endpoint
+        setUserBiddings(response.data.winningBids);
+      } catch (error) {
+        console.error("Error fetching user biddings:", error);
+        // Handle error (e.g., show an error message)
+      }
+    };
+
+    fetchUserBiddings();
+  }, []);
+  return (
+    <div className="px-5">
+      <h2 className="text-2xl font-bold mb-4">Your Winning Bids</h2>
+      {Array.isArray(userBiddings) && userBiddings.length > 0 ? (
+        userBiddings.map((bid) => (
+          <div key={bid._id} className="mb-3">
+            <Biddingcard data={bid} />
+          </div>
+        ))
+      ) : (
+        <p>You haven't won any biddings.</p> 
+      )}
+    </div>
+  );
+};
+
+const Luckydraws = () => {
+  const { user, error, successMessage } = useSelector((state) => state.user);
+  const [userLuckydraws, setuserLuckydraws] = useState([]);
+
+  useEffect(() => {
+    const fetchUserLuckydraws = async () => {
+      try {
+        const response = await axios.get(
+          `${server}/luckydraw/user-won-luckydraws/${user._id}`
+        ); // Replace with your actual API endpoint
+        setuserLuckydraws(response.data.wonLuckyDraws);
+      } catch (error) {
+        console.error("Error fetching user biddings:", error);
+        // Handle error (e.g., show an error message)
+      }
+    };
+
+    fetchUserLuckydraws();
+  }, []);
+  return (
+    <div className="px-5">
+      <h2 className="text-2xl font-bold mb-4">Your Winning Bids</h2>
+      {Array.isArray(userLuckydraws) && userLuckydraws.length > 0 ? (
+        userLuckydraws.map((luckydraw) => (
+          <div key={luckydraw._id} className="mb-3">
+            <Luckydrawcard data={luckydraw} />
+          </div>
+        ))
+      ) : (
+        <p>You haven't won any luckydraws.</p> 
+      )}
+    </div>
+  );
+};
+
 
 
 export default ProfileContent;
