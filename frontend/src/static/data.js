@@ -624,14 +624,14 @@ export const footercompanyLinks = [
   // {
   //   name: "Tropical Fruits",
   // },
-    // {
-  //   name: "Herbs and Spices",
-  // },
   {
-    name: "Vegetables",
+    name: "Mayratdaa A/P Eh Sing",
   },
   {
-    name: "Fruits",
+    name: "FruitsDelight",
+  },
+  {
+    name: "AgroAcres",
   },
 ];
 
@@ -649,7 +649,7 @@ export const footerSupportLinks = [
   // {
   //   name: "Shipping",
   // },
-  {
-    name: "Live chat",
-  },
+  // {
+  //   name: "Live chat",
+  // },
 ];

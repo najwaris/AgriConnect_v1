@@ -50,15 +50,20 @@ const Testimonials = () => {
                                         </div>
 
                                         <blockquote className="flex-1 mt-8">
-                                            <p className="text-lg leading-relaxed text-gray-900 font-pj">“You made it so simple. My new site is so much faster and easier to work with than my old site. I just choose the page, make the change.”</p>
+                                            <p className="text-lg leading-relaxed text-gray-900 font-pj">“AgriConnect? More like AgriCon-nect-ed to my taste buds! 
+                                            Fresh finds, fair prices, and enough bidding wars to keep my kitchen thrilling.”</p>
                                         </blockquote>
                                     </div>
 
                                     <div className="flex items-center mt-8">
-                                        <img className="flex-shrink-0 object-cover rounded-full w-11 h-11" src="https://cdn.rareblocks.xyz/collection/clarity/images/testimonial/4/avatar-male-1.png" alt="" />
+                                        <img 
+                                            className="flex-shrink-0 object-cover rounded-full w-11 h-11" 
+                                            src="https://i.pinimg.com/736x/c9/38/98/c93898e35c804b9c11e4fce055520b7f.jpg" 
+                                            alt="" 
+                                        />
                                         <div className="ml-4">
-                                            <p className="text-base font-bold text-gray-900 font-pj">Leslie Alexander</p>
-                                            <p className="mt-0.5 text-sm font-pj text-gray-600">Freelance React Developer</p>
+                                            <p className="text-base font-bold text-gray-900 font-pj">Sarah Lee</p>
+                                            <p className="mt-0.5 text-sm font-pj text-gray-600">Chef & Food Blogger</p>
                                         </div>
                                     </div>
                                 </div>
@@ -96,15 +101,20 @@ const Testimonials = () => {
                                         </div>
 
                                         <blockquote className="flex-1 mt-8">
-                                            <p className="text-lg leading-relaxed text-gray-900 font-pj">“Simply the best. Better than all the rest. I’d recommend this product to beginners and advanced users.”</p>
+                                            <p className="text-lg leading-relaxed text-gray-900 font-pj">“Used to hate middlemen, now I just middle-click 'bid'! 
+                                            AgriConnect cuts the fuss, connects the dots, and keeps my crops happily hopping.”</p>
                                         </blockquote>
                                     </div>
 
                                     <div className="flex items-center mt-8">
-                                        <img className="flex-shrink-0 object-cover rounded-full w-11 h-11" src="https://cdn.rareblocks.xyz/collection/clarity/images/testimonial/4/avatar-male-2.png" alt="" />
+                                        <img 
+                                            className="flex-shrink-0 object-cover rounded-full w-11 h-11" 
+                                            src="https://i.pinimg.com/originals/30/e3/36/30e336c7faf7d88aa880e6a2b7781d8e.jpg" 
+                                            alt="" 
+                                        />
                                         <div className="ml-4">
-                                            <p className="text-base font-bold text-gray-900 font-pj">Jacob Jones</p>
-                                            <p className="mt-0.5 text-sm font-pj text-gray-600">Digital Marketer</p>
+                                            <p className="text-base font-bold text-gray-900 font-pj">Adam Chen</p>
+                                            <p className="mt-0.5 text-sm font-pj text-gray-600">Tech Startup Founder</p>
                                         </div>
                                     </div>
                                 </div>
@@ -142,15 +152,20 @@ const Testimonials = () => {
                                         </div>
 
                                         <blockquote className="flex-1 mt-8">
-                                            <p className="text-lg leading-relaxed text-gray-900 font-pj">“I cannot believe that I have got a brand new landing page after getting Omega. It was super easy to edit and publish.”</p>
+                                            <p className="text-lg leading-relaxed text-gray-900 font-pj">“Local, fresh, and fighting food waste? 
+                                            AgriConnect's got my green heart singing (and my fridge overflowing with goodness).”</p>
                                         </blockquote>
                                     </div>
 
                                     <div className="flex items-center mt-8">
-                                        <img className="flex-shrink-0 object-cover rounded-full w-11 h-11" src="https://cdn.rareblocks.xyz/collection/clarity/images/testimonial/4/avatar-female.png" alt="" />
+                                        <img 
+                                            className="flex-shrink-0 object-cover rounded-full w-11 h-11" 
+                                            src="https://i.pinimg.com/originals/26/8e/1a/268e1a181acc642b8a30025a112e6fbd.jpg" 
+                                            alt="" 
+                                        />
                                         <div className="ml-4">
                                             <p className="text-base font-bold text-gray-900 font-pj">Jenny Wilson</p>
-                                            <p className="mt-0.5 text-sm font-pj text-gray-600">Graphic Designer</p>
+                                            <p className="mt-0.5 text-sm font-pj text-gray-600">Sustainable Foodie</p>
                                         </div>
                                     </div>
                                 </div>

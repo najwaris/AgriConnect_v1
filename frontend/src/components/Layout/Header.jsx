@@ -1,21 +1,17 @@
 import React, { useState } from "react";
 import styles from "../../styles/styles";
 import { Link } from "react-router-dom";
-import { IoIosArrowDown, IoIosArrowDownIoIosArrowForward, IoIosArrowForward } from "react-icons/io";
-// import DropDown from "./DropDown";
+import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
 import NavBar from "./NavBar";
 import { CgProfile } from "react-icons/cg";
 import { useSelector } from "react-redux";
 import { backend_url } from "../../server";
-import { productData } from "../../static/data";
-import { categoriesData } from "../../static/data";
+import { productData, categoriesData } from "../../static/data";
 import { AiOutlineSearch } from "react-icons/ai";
-// import { BiMenuAltLeft } from "react-icons/bi";
 
 const Header = ({ activeHeading }) => {
   const { isAuthenticated, user } = useSelector((state) => state.user);
   const [active, setActive] = useState(false);
-  // const [dropDown, setDropDown] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [searchData, setSearchData] = useState(null);
 
@@ -28,9 +24,7 @@ const Header = ({ activeHeading }) => {
       product.name.toLowerCase().includes(term.toLowerCase())
     );
     setSearchData(filteredProducts);
-
-
-  }
+  };
 
 
 
@@ -119,30 +113,6 @@ const Header = ({ activeHeading }) => {
         {/* navitems */}
         <div className={`${styles.section} relative ${styles.noramlFlex} justify-between`}>
           <NavBar active={activeHeading} />
-
-          {/* categories
-          <div onClick={() => setDropDown(!DropDown)}>
-            <div className="relative h-[60px] mt-[10px] w-[270px] hidden 1000px:block">
-              <BiMenuAltLeft size={30} className="absolute top-3 left-2" />
-              <button
-                className={`h-[100%] w-full flex justify-between items-center pl-10 bg-white font-sans text-lg font-[500] select-none rounded-t-md`}
-              >
-                All Categories
-              </button>
-              <IoIosArrowDown
-                size={20}
-                className="absolute right-2 top-4 cursor-pointer"
-                onClick={() => setDropDown(!DropDown)}
-              />
-              {DropDown ? (
-                <DropDown
-                  categoriesData={categoriesData}
-                  DropDown={setDropDown}
-                />
-              ) : null}
-            </div>
-          </div> */}
-
         </div>
 
         <div>
