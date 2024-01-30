@@ -1,24 +1,44 @@
 import React, { useState } from "react";
-import {
-  AiOutlineMessage,
-  AiOutlineShoppingCart,
-} from "react-icons/ai";
+import { AiOutlineMessage, AiOutlineShoppingCart } from "react-icons/ai";
 import { RxCross1 } from "react-icons/rx";
 import styles from "../../../styles/styles";
 import CountDown2 from "../../Events/CountDown2.jsx";
-import { backend_url } from "../../../server.js";
+import { backend_url, server } from "../../../server.js";
+import axios from "axios";
+import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
 
 const ProductDetailsCard2 = ({ setOpen, data }) => {
   const [count, setCount] = useState(1);
   const [click, setClick] = useState(false);
   const [bidPrice, setBidPrice] = useState("");
+  const { user } = useSelector((state) => state.user);
 
   const handleMessageSubmit = () => {};
 
-  const handleClick = (e) => {
+  const handleClick = async (e) => {
     e.preventDefault();
-    console.log("success!");
-};
+
+    const luckydrawId = data._id; // Replace with your actual luckydraw ID from the component's data
+    const userId = user._id; // Replace with the actual user ID
+
+    try {
+      const response = await axios.post(
+        `${server}/luckydraw/add-participant/${luckydrawId}`,
+        {
+          userId: userId,
+        }
+      );
+      toast.success(response.status.message);
+      window.location.reload(true);
+    } catch (error) {
+      toast.error(
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : "An error occurred"
+      );
+    }
+  };
 
   return (
     <div className="bg-[#fff]">
@@ -79,7 +99,7 @@ const ProductDetailsCard2 = ({ setOpen, data }) => {
                 <br />
                 <br />
 
-                <form >
+                <form>
                   <button
                     type="button"
                     className="bg-gradient-to-r from-teal-400 to-teal-500 text-white font-bold contained rounded px-4 py-2 shadow-lg hover:opacity-75 transition duration-300 ease-in-out"
