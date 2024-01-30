@@ -31,7 +31,7 @@ const DashboardHeader = () => {
                 className="mx-5 cursor-pointer"
               />
             </Link>
-            <Link to="/dashboard/biddings" className="800px:block hidden">
+            <Link to="/dashboard-biddings" className="800px:block hidden">
               <FiShoppingBag
                 color="#555"
                 size={30}

@@ -19,12 +19,16 @@ const CreateBidding = () => {
   const [category, setCategory] = useState("");
   const [tags, setTags] = useState("");
   const [minimumPrice, setMinimumPrice] = useState();
-  const [startDate] = useState(new Date().toISOString().slice(0, 10));
+  const [startDate, setStartDate] = useState(new Date().toISOString().slice(0, 10));
   const [endDate, setEndDate] = useState();
 
   const handleEndDateChange = (e) => {
     const endDate = new Date(e.target.value);
     setEndDate(endDate);
+  };
+
+  const handleStartDateChange = (e) => {
+    setStartDate(e.target.value);
   };
 
   const minEndDate = startDate
@@ -167,7 +171,6 @@ const CreateBidding = () => {
             id="start-date"
             value={startDate}
             className="mt-2 appearance-none block w-full px-3 h-[35px] border border-gray-300 rounded-[3px] placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-            readOnly
           />
         </div>
         <br />

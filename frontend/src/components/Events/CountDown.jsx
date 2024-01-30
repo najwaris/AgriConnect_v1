@@ -1,28 +1,23 @@
 import React, { useEffect, useState } from "react";
+import { server } from "../../server";
+import axios from "axios";
 
 const CountDown = ({ data }) => {
-    const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
-    const [isTimerCompleted, setIsTimerCompleted] = useState(false);
-    const [hasCountdownStarted, setHasCountdownStarted] = useState(false);
-  
-    useEffect(() => {
-      const timer = setTimeout(() => {
-        const newTimeLeft = calculateTimeLeft();
+  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const newTimeLeft = calculateTimeLeft();
+
+      if (Object.keys(newTimeLeft).length === 0) {
+        clearInterval(interval);
+        setStatusEnded();
+      } else {
         setTimeLeft(newTimeLeft);
-  
-        if (Object.keys(newTimeLeft).length > 0) {
-          setHasCountdownStarted(true);
-        }
-  
-        if (hasCountdownStarted && Object.keys(newTimeLeft).length === 0 && !isTimerCompleted) {
-          setIsTimerCompleted(true);
-          console.log("done, Time up!");
-        }
-      }, 1000);
-  
-      return () => clearTimeout(timer);
-    }, [timeLeft, isTimerCompleted, hasCountdownStarted]);
-  
+      }
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   function calculateTimeLeft() {
     const difference = +new Date(data?.end_date) - +new Date();
@@ -38,6 +33,20 @@ const CountDown = ({ data }) => {
     }
 
     return timeLeft;
+  }
+
+  function setStatusEnded() {
+    const luckydrawId = data._id; // Ensure this is the correct ID
+    axios
+      .post(`${server}/bidding/end-bidding/${luckydrawId}`)
+      .then((response) => {
+        console.log("Winner selected:", response.data);
+        // Handle further actions after selecting winner
+      })
+      .catch((error) => {
+        console.error("Error selecting winner:", error);
+        // Handle errors
+      });
   }
 
   const timerComponents = Object.keys(timeLeft).map((interval) => {

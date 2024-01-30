@@ -7,6 +7,7 @@ import { backend_url, server } from "../../../server";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const ProductDetailsCard = ({ setOpen, data }) => {
   const [count, setCount] = useState(1);
@@ -36,9 +37,6 @@ const ProductDetailsCard = ({ setOpen, data }) => {
           bidAmount: parseFloat(bidPrice),
         }
       );
-      //   const response = await axios.patch(
-      //     `${server}/bidding/end-bidding/${biddingId}`
-      //   );
       toast.success(response.status.message);
       window.location.reload(true);
       setBidPrice("");
@@ -73,10 +71,9 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                     className="w-[50px] h-[50px] rounded-full mr-2"
                   />
                   <div>
-                    <h3 className={`${styles.shop_name}`}>{data.shop.name}</h3>
-                    <h5 className="pb-3 text-[15px]">
-                      ({data.shop.ratings}) Ratings
-                    </h5>
+                  <Link to={`/shop/farmer/${data.shop._id}`}>
+                  <h3 className={`${styles.shop_name}`}>{data.shop.name}</h3>
+                  </Link>
                   </div>
                 </div>
 
@@ -88,8 +85,8 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                     Send Message <AiOutlineMessage className="ml-1" />
                   </span>
                 </div>
-                <h5 className="text-[16px] text-[red] mt-5">
-                  ({data.total_sell}) Sold out
+                <h5 className="text-[16px] text-[black] mt-5">
+                  {data.shop.address}
                 </h5>
               </div>
 

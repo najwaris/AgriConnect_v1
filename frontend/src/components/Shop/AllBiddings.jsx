@@ -35,27 +35,27 @@ const AllBiddings = () => {
       flex: 0.8,
     },
     { field: "status", headerName: "Status", minWidth: 100, flex: 0.5 },
-    {
-      field: "preview",
-      headerName: "",
-      minWidth: 100,
-      flex: 0.8,
-      type: "number",
-      sortable: false,
-      renderCell: (params) => {
-        const d = params.row.name;
-        const bidding_name = d.replace(/\+s/g, "-");
-        return (
-          <>
-            <Link to={`/biddings/${bidding_name}`}>
-              <button>
-                <AiOutlineEye size={20} />
-              </button>
-            </Link>
-          </>
-        );
-      },
-    },
+    // {
+    //   field: "preview",
+    //   headerName: "",
+    //   minWidth: 100,
+    //   flex: 0.8,
+    //   type: "number",
+    //   sortable: false,
+    //   renderCell: (params) => {
+    //     const d = params.row.name;
+    //     const bidding_name = d.replace(/\+s/g, "-");
+    //     return (
+    //       <>
+    //         {/* <Link to={`/biddings/${params.id}`}> */}
+    //           <button>
+    //             <AiOutlineEye size={20} />
+    //           </button>
+    //         {/* </Link> */}
+    //       </>
+    //     );
+    //   },
+    // },
     {
       field: "delete",
       headerName: "",

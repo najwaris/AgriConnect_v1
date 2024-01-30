@@ -95,7 +95,7 @@ const DashboardSideBar = ({ active }) => {
         </Link>
       </div>
 
-      <div className="w-full flex items-center p-4">
+      {/* <div className="w-full flex items-center p-4">
         <Link to="/settings" className="w-full flex items-center">
           <CiSettings
             size={30}
@@ -109,7 +109,7 @@ const DashboardSideBar = ({ active }) => {
             Settings
           </h5>
         </Link>
-      </div>
+      </div> */}
     </div>
   );
 };
