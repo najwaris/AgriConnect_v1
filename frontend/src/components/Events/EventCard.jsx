@@ -7,7 +7,7 @@ const EventCard = ({active}) => {
 
     return (
         <div
-            className={`w-full block bg-[#cbe5cb] rounded-lg ${active ? "unset" : "mb-12"} lg:flex p-2 mb-12`}
+            className={`w-full block bg-[#FFFFFF] rounded-lg ${active ? "unset" : "mb-12"} lg:flex p-2 mb-12`}
         >
             <div className="w-full lg:-w[50%] m-auto">
                 <img
@@ -46,7 +46,7 @@ const EventCard = ({active}) => {
                             999$
                         </h5>
                     </div>
-                    <span className="pr-3 font-[400] text-[17px] text-[#3f5f3f]">
+                    <span className="pr-3 font-[400] text-[17px] text-[#68d284]">
                         {/* {data.total_sell} sold */}
                         120 sold
                     </span>

@@ -8,6 +8,7 @@ import { CgProfile } from "react-icons/cg";
 import { useSelector } from "react-redux";
 import { backend_url } from "../../server";
 import { productData } from "../../static/data";
+import { categoriesData } from "../../static/data";
 import { AiOutlineSearch } from "react-icons/ai";
 // import { BiMenuAltLeft } from "react-icons/bi";
 
@@ -26,6 +27,8 @@ const Header = ({ activeHeading }) => {
       product.name.toLowerCase().includes(term.toLowerCase())
     );
     setSearchData(filteredProducts);
+
+
   }
 
 
@@ -45,11 +48,11 @@ const Header = ({ activeHeading }) => {
         <div className="hidden 800px:h-[70px] 800:my-[20px] 800px:flex items-center justify-between">
           <div>
             <Link to="/">
-              <span className="font-style: italic font-extrabold text-4xl text-green-600">
+              <span className="font-style: italic font-extrabold text-4xl text-teal-600">
                 A
               </span>
               <span className="font-style: italic text-3xl ml-1">gri</span>
-              <span className="font-style: italic font-extrabold text-4xl text-green-600 ml-1">
+              <span className="font-style: italic font-extrabold text-4xl text-teal-600 ml-1">
                 C
               </span>
               <span className="font-style: italic text-3xl ml-1">onnect</span>
@@ -63,7 +66,7 @@ const Header = ({ activeHeading }) => {
               placeholder="Search Products"
               value={searchTerm}
               onChange={handleSearchChange}
-              className="h-[40px] w-full px-2 border-[#3957db] border-[2px] rounded-md"
+              className="h-[40px] w-full px-2 border-teal-500 border-[2px] rounded-md"
             />
 
             <AiOutlineSearch
@@ -109,7 +112,7 @@ const Header = ({ activeHeading }) => {
 
       <div
         className={`${active === true ? "shadow-sm top-0 left-0 z-10" : null
-          } transition hidden 800px:flex items-center justify-between w-full bg-green-600 h-[70px] `}
+          } transition hidden 800px:flex items-center justify-between w-full bg-teal-600 h-[70px] `}
       >
 
         {/* navitems */}
