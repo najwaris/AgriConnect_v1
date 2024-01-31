@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { server } from "../../server";
 import axios from "axios";
+import { server } from "../../server";
 
 const CountDown = ({ data }) => {
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+
   useEffect(() => {
     const interval = setInterval(() => {
       const newTimeLeft = calculateTimeLeft();
@@ -17,7 +18,7 @@ const CountDown = ({ data }) => {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [data?.end_date]); // Add data?.end_date to the dependency array
 
   function calculateTimeLeft() {
     const difference = +new Date(data?.end_date) - +new Date();
@@ -38,13 +39,13 @@ const CountDown = ({ data }) => {
   function setStatusEnded() {
     const luckydrawId = data._id; // Ensure this is the correct ID
     axios
-      .post(`${server}/bidding/end-bidding/${luckydrawId}`)
+      .patch(`${server}/bidding/end-bidding/${luckydrawId}`)
       .then((response) => {
-        console.log("Winner selected:", response.data);
-        // Handle further actions after selecting winner
+        console.log("Bidding ended:", response.data);
+        // Handle further actions after ending the bidding
       })
       .catch((error) => {
-        console.error("Error selecting winner:", error);
+        console.error("Error ending bidding:", error);
         // Handle errors
       });
   }
@@ -66,7 +67,7 @@ const CountDown = ({ data }) => {
       {timerComponents.length ? (
         timerComponents
       ) : (
-        <span className="text-[red] text-[25px]">Time's Up!</span>
+        <span className="text-red text-[25px]">Time's Up!</span>
       )}
     </div>
   );

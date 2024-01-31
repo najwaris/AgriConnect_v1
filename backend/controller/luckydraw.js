@@ -116,6 +116,10 @@ router.post(
       if (!luckydraw) {
         return next(new ErrorHandler("Luckydraw not found!", 404));
       }
+
+      if(luckydraw.status === "Ended" ){
+        return next(new ErrorHandler("Luckydraw Ended!", 404));
+      }
       // Check if user is already a participant
       const isParticipant = luckydraw.participants.includes(userId);
       if (isParticipant) {
@@ -137,6 +141,28 @@ router.post(
   })
 );
 
+router.patch("/end-luckydraw/:luckyDrawId", async (req, res) => {
+  try {
+    const luckyDrawId = req.params.luckyDrawId;
+
+    const luckyDraw = await Luckydraw.findById(luckyDrawId);
+    if (!luckyDraw) {
+      return res.status(404).json({ message: "Lucky draw not found" });
+    }
+
+    // Update the status to 'Ended'
+    luckyDraw.status = "Ended";
+    await luckyDraw.save();
+
+    res.status(200).json({
+      success: true,
+      message: "Lucky draw status updated to Ended",
+    });
+  } catch (error) {
+    res.status(500).json({ message: "An error occurred", error: error.message });
+  }
+});
+
 router.post("/select-winner/:id", async (req, res, next) => {
   try {
     // Retrieve the lucky draw
@@ -145,20 +171,18 @@ router.post("/select-winner/:id", async (req, res, next) => {
       return next(new ErrorHandler("Luckydraw not found!", 404));
     }
 
+    // Check if the lucky draw has already ended
     if (luckydraw.status === "Ended") {
-      return next(new ErrorHandler("Already chosed winner!", 404));
+      return next(new ErrorHandler("Already chose a winner!", 404));
     }
+
     // Ensure there are participants
     if (luckydraw.participants.length === 0) {
-      return res
-        .status(400)
-        .json({ message: "No participants in the lucky draw!" });
+      return res.status(400).json({ message: "No participants in the lucky draw!" });
     }
 
     // Select a random winner from participants
-    const randomIndex = Math.floor(
-      Math.random() * luckydraw.participants.length
-    );
+    const randomIndex = Math.floor(Math.random() * luckydraw.participants.length);
     const winnerId = luckydraw.participants[randomIndex];
 
     // Retrieve the user object
@@ -166,9 +190,10 @@ router.post("/select-winner/:id", async (req, res, next) => {
     if (!winner) {
       return res.status(404).json({ message: "Winner not found!" });
     }
+
     // Update the lucky draw with winner information and change status
     luckydraw.winnerID = winnerId;
-    luckydraw.winner = winner; // Be cautious about storing full user objects
+    luckydraw.winner = winner; // Storing the whole user object - be cautious about privacy and data size
     luckydraw.status = "Ended"; // Update the status to 'Ended'
 
     await luckydraw.save();
@@ -179,9 +204,7 @@ router.post("/select-winner/:id", async (req, res, next) => {
       winner: winner,
     });
   } catch (error) {
-    res
-      .status(400)
-      .json({ message: "An error occurred", error: error.message });
+    res.status(400).json({ message: "An error occurred", error: error.message });
   }
 });
 

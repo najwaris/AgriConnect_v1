@@ -77,14 +77,15 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                   </div>
                 </div>
 
-                <div
-                  className={`${styles.button} bg-[#000] mt-4 rounded-[4px] h-11`}
-                  onClick={handleMessageSubmit}
-                >
-                  <span className="text-[#fff] flex items-center">
-                    Send Message <AiOutlineMessage className="ml-1" />
-                  </span>
-                </div>
+                <Link to={`/shop/farmer/${data.shop._id}`}>
+                  <div
+                    className={`${styles.button} bg-[#000] mt-4 rounded-[4px] h-11`}
+                  >
+                    <span className="text-[#fff] flex items-center">
+                      View Farmer Shop
+                    </span>
+                  </div>
+                </Link>
                 <h5 className="text-[16px] text-[black] mt-5">
                   {data.shop.address}
                 </h5>
