@@ -36,10 +36,10 @@ const Login = () => {
 
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-teal-400 to-teal-500 text-white font-bold contained rounded px-4 py-2 shadow-lg flex flex-col justify-center sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-r from-teal-400 to-teal-500 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-          Login to your account
+          Login to your Account
         </h2>
       </div>
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
@@ -130,7 +130,7 @@ const Login = () => {
             </div>
             <div className={`${styles.noramlFlex} w-full ml-2 block text-sm text-gray-900`}>
               <h4>Not have any account?</h4>
-              <Link to="/sign-up" className="font-medium text-blue-600 hover:text-blue-500 pl-40">
+              <Link to="/sign-up" className="font-medium text-blue-600 hover:text-blue-500 ml-auto">
                 Sign Up
               </Link>
             </div>
