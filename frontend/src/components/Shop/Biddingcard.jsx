@@ -72,11 +72,11 @@ const Biddingcard = ({ data }) => {
           <br />
           <p className="text-sm font-semibold">
             Status:{" "}
-            {!data.Orderstatus || data.Orderstatus === "Pending"
+            {!data.Orderstatus || data.Orderstatus === "Pending Pickup"
               ? "Pending Pickup"
               : data.Orderstatus}
           </p>
-          {data.Orderstatus === "Pending" && (
+          {data.Orderstatus === "Pending Pickup" && (
             <>
               <button
                 onClick={handleCompleteClick}
@@ -88,7 +88,7 @@ const Biddingcard = ({ data }) => {
                 onClick={handleCancelClick}
                 className="mt-3 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
               >
-                Complete
+                Cancel
               </button>
             </>
           )}
